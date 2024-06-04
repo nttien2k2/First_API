@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<div class="text-center">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody id="dataBody"></tbody>
+        </table>
+    </div>
+    <script>
+        // Gọi API bằng JavaScript sử dụng Fetch API
+        fetch('http://localhost:5016/api/Users', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Xử lý dữ liệu trả về từ API
+                const records = data.map(item => {
+                    const { id, userName, passWord } = item;
+                    return { id, userName, passWord };
+                });
+
+                // Hiển thị dữ liệu trong bảng
+                const dataBody = document.getElementById('dataBody');
+                records.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                    <td>${record.id}</td>
+                    <td>${record.userName}</td>
+                    <td>${record.passWord}</td>
+                  `;
+                    dataBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                // Xử lý lỗi (nếu có)
+                console.error(error);
+            });
+    </script>
+</div>
