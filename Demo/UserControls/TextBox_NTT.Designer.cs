@@ -139,6 +139,10 @@ namespace Demo.Controls
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
             }
         }
+        public void Clear()
+        {
+            textBox1.Clear();
+        }
         #endregion
 
         #region -> Properties
@@ -240,7 +244,7 @@ namespace Demo.Controls
         }
 
         [Category("RJ Code Advance")]
-        public string Texts
+        public string Text
         {
             get
             {

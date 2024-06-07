@@ -343,7 +343,7 @@
             this.textBox_ntt1.PlaceholderText = "";
             this.textBox_ntt1.Size = new System.Drawing.Size(150, 40);
             this.textBox_ntt1.TabIndex = 24;
-            this.textBox_ntt1.Texts = "";
+            this.textBox_ntt1.Text = "";
             this.textBox_ntt1.UnderlinedStyle = false;
             // 
             // FrmPhanQuyen
