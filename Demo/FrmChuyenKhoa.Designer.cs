@@ -69,7 +69,11 @@
             this.btn_ThemPB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPB.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemPB.Image")));
             this.btn_ThemPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< HEAD
             this.btn_ThemPB.Location = new System.Drawing.Point(60, 232);
+=======
+            this.btn_ThemPB.Location = new System.Drawing.Point(81, 215);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.btn_ThemPB.Name = "btn_ThemPB";
             this.btn_ThemPB.Size = new System.Drawing.Size(148, 53);
             this.btn_ThemPB.TabIndex = 10;
@@ -117,7 +121,11 @@
             this.textBox_ntt2.PlaceholderText = "";
             this.textBox_ntt2.Size = new System.Drawing.Size(200, 35);
             this.textBox_ntt2.TabIndex = 7;
+<<<<<<< HEAD
             this.textBox_ntt2.Text = "";
+=======
+            this.textBox_ntt2.Texts = "";
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.textBox_ntt2.UnderlinedStyle = false;
             // 
             // textBox_ntt1
@@ -138,7 +146,11 @@
             this.textBox_ntt1.PlaceholderText = "";
             this.textBox_ntt1.Size = new System.Drawing.Size(200, 38);
             this.textBox_ntt1.TabIndex = 6;
+<<<<<<< HEAD
             this.textBox_ntt1.Text = "";
+=======
+            this.textBox_ntt1.Texts = "";
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.textBox_ntt1.UnderlinedStyle = false;
             // 
             // ckb_TrangThai
@@ -182,7 +194,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(69, 21);
+=======
+            this.label1.Location = new System.Drawing.Point(69, 25);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 25);
             this.label1.TabIndex = 0;
@@ -206,7 +222,11 @@
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
+<<<<<<< HEAD
             this.pn_Left.Size = new System.Drawing.Size(317, 770);
+=======
+            this.pn_Left.Size = new System.Drawing.Size(320, 723);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.pn_Left.TabIndex = 2;
             // 
             // pictureBox1
@@ -252,9 +272,15 @@
             // 
             this.pn_Right.Controls.Add(this.dataGridView1);
             this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
+<<<<<<< HEAD
             this.pn_Right.Location = new System.Drawing.Point(317, 50);
             this.pn_Right.Name = "pn_Right";
             this.pn_Right.Size = new System.Drawing.Size(632, 770);
+=======
+            this.pn_Right.Location = new System.Drawing.Point(322, 50);
+            this.pn_Right.Name = "pn_Right";
+            this.pn_Right.Size = new System.Drawing.Size(632, 723);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.pn_Right.TabIndex = 3;
             // 
             // dataGridView1
@@ -272,7 +298,11 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
+<<<<<<< HEAD
             this.dataGridView1.Size = new System.Drawing.Size(632, 770);
+=======
+            this.dataGridView1.Size = new System.Drawing.Size(632, 723);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.dataGridView1.TabIndex = 0;
             // 
             // panel4
@@ -283,7 +313,11 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
+<<<<<<< HEAD
             this.panel4.Size = new System.Drawing.Size(949, 820);
+=======
+            this.panel4.Size = new System.Drawing.Size(954, 773);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.panel4.TabIndex = 3;
             // 
             // toolStrip1
@@ -298,7 +332,11 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
+<<<<<<< HEAD
             this.toolStrip1.Size = new System.Drawing.Size(949, 50);
+=======
+            this.toolStrip1.Size = new System.Drawing.Size(954, 50);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripButton1
@@ -353,7 +391,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(949, 820);
+=======
+            this.ClientSize = new System.Drawing.Size(954, 773);
+>>>>>>> 03d380d983c20762ef522395a07aeb0526883229
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmChuyenKhoa";

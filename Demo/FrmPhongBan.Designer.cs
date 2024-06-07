@@ -73,7 +73,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(950, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(952, 50);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripButton1
@@ -133,14 +133,14 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(950, 820);
+            this.panel4.Size = new System.Drawing.Size(952, 820);
             this.panel4.TabIndex = 2;
             // 
             // pn_Right
             // 
             this.pn_Right.Controls.Add(this.dataGridView1);
             this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Right.Location = new System.Drawing.Point(318, 50);
+            this.pn_Right.Location = new System.Drawing.Point(320, 50);
             this.pn_Right.Name = "pn_Right";
             this.pn_Right.Size = new System.Drawing.Size(632, 770);
             this.pn_Right.TabIndex = 3;
@@ -209,7 +209,7 @@
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(317, 770);
+            this.pn_Left.Size = new System.Drawing.Size(320, 770);
             this.pn_Left.TabIndex = 2;
             // 
             // btn_ThemPB
@@ -220,7 +220,7 @@
             this.btn_ThemPB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPB.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemPB.Image")));
             this.btn_ThemPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemPB.Location = new System.Drawing.Point(60, 232);
+            this.btn_ThemPB.Location = new System.Drawing.Point(81, 215);
             this.btn_ThemPB.Name = "btn_ThemPB";
             this.btn_ThemPB.Size = new System.Drawing.Size(148, 53);
             this.btn_ThemPB.TabIndex = 10;
@@ -354,7 +354,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 820);
+            this.ClientSize = new System.Drawing.Size(952, 820);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
