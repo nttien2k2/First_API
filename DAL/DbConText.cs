@@ -81,8 +81,8 @@ namespace DAL
 
         public void OpenConnect()
         {
-            //strUserName = "sa";
-            //strPassWord = "123";
+            strUserName = "sa";
+            strPassWord = "123";
             strConnect = @"Data Source= LAPTOP-FRMKN0GD\TIEN " + ";Initial Catalog= QL_KHAMBENH " + ";user ID=" + strUserName + "; password =" + strPassWord;
             Connect = new SqlConnection(StrConnect);
             if (Connect.State == ConnectionState.Closed)
