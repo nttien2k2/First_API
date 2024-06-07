@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using DAL;
 
 namespace Demo
 {
@@ -45,6 +46,7 @@ namespace Demo
         {
             conn.OpenConnect();
             CheckDangNhap();
+
         }
 
         public bool daDangNhap { get; set; } = false;
@@ -150,9 +152,7 @@ namespace Demo
 
         private void btn_Menu_NhanVien_Click_1(object sender, EventArgs e)
         {
-            //FrmNhanVien f = new FrmNhanVien();
-            //f.MdiParent = this;
-            //f.Show();
+            Form_load(new FrmNhanVien());
         }
 
         private void btn_Close_Click(object sender, EventArgs e)
@@ -180,6 +180,18 @@ namespace Demo
         private void btn_PhongBan_Click(object sender, EventArgs e)
         {
             FrmPhongBan f = new FrmPhongBan();
+            f.Show();
+        }
+
+        private void Form_load(object form)
+        {
+            if (this.pn_Main.Controls.Count > 0)
+                this.pn_Main.Controls.RemoveAt(0);
+            Form f = form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.pn_Main.Controls.Add(f);
+            this.pn_Main.Tag = f;
             f.Show();
         }
     }

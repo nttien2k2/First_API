@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.btnBackupF = new System.Windows.Forms.Button();
             this.btnBackUpDiff = new System.Windows.Forms.Button();
             this.btnBackUpLog = new System.Windows.Forms.Button();
@@ -48,16 +47,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(361, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBackupF
             // 
@@ -167,7 +156,6 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtDuongDan);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnBackupF);
             this.panel1.Controls.Add(this.btnBackUpDiff);
             this.panel1.Controls.Add(this.btnBackUpLog);
@@ -228,8 +216,6 @@
         }
 
         #endregion
-
-        private Button button1;
         private Button btnBackupF;
         private Button btnBackUpDiff;
         private Button btnBackUpLog;

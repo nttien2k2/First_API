@@ -1,5 +1,5 @@
 ﻿
-using Demo.Properties;
+using GUI.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

@@ -6,12 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo
+namespace DAL
 {
     public class DbContext
     {
         private DataSet dSet;
-
         public DataSet DSet
         {
             get { return dSet; }
@@ -163,9 +162,9 @@ namespace Demo
         {
             string query = "SELECT COUNT(*) FROM NhanVien WHERE SDT = @tk AND MatKhau = @mk";
             SqlParameter[] parameters = {
-                    new SqlParameter("@tk", tk),
-                    new SqlParameter("@mk", mk)};
-            if (GetCount(query, parameters) > 0) 
+                new SqlParameter("@tk", tk),
+                new SqlParameter("@mk", mk)};
+            if (GetCount(query, parameters) > 0)
                 return true;
 
             return false;
@@ -180,7 +179,6 @@ namespace Demo
             CloseConnect();
             return chucvu;
         }
-
 
     }
 }

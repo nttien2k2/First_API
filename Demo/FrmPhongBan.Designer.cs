@@ -254,7 +254,7 @@
             this.textBox_ntt2.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_ntt2.BorderColor = System.Drawing.SystemColors.Desktop;
             this.textBox_ntt2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.textBox_ntt2.BorderRadius = 8;
+            this.textBox_ntt2.BorderRadius = 5;
             this.textBox_ntt2.BorderSize = 1;
             this.textBox_ntt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_ntt2.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -268,7 +268,7 @@
             this.textBox_ntt2.PlaceholderText = "";
             this.textBox_ntt2.Size = new System.Drawing.Size(200, 35);
             this.textBox_ntt2.TabIndex = 7;
-            this.textBox_ntt2.Texts = "";
+            this.textBox_ntt2.Text = "";
             this.textBox_ntt2.UnderlinedStyle = false;
             // 
             // textBox_ntt1
@@ -276,7 +276,7 @@
             this.textBox_ntt1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_ntt1.BorderColor = System.Drawing.SystemColors.Desktop;
             this.textBox_ntt1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.textBox_ntt1.BorderRadius = 8;
+            this.textBox_ntt1.BorderRadius = 5;
             this.textBox_ntt1.BorderSize = 1;
             this.textBox_ntt1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_ntt1.Location = new System.Drawing.Point(60, 80);
@@ -289,7 +289,7 @@
             this.textBox_ntt1.PlaceholderText = "";
             this.textBox_ntt1.Size = new System.Drawing.Size(200, 38);
             this.textBox_ntt1.TabIndex = 6;
-            this.textBox_ntt1.Texts = "";
+            this.textBox_ntt1.Text = "";
             this.textBox_ntt1.UnderlinedStyle = false;
             // 
             // ckb_TrangThai

@@ -58,13 +58,14 @@
             this.btn_ChuyenKhoa = new System.Windows.Forms.Button();
             this.pn_CaiDat = new System.Windows.Forms.Panel();
             this.btn_CaiDat = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pn_Header = new System.Windows.Forms.Panel();
             this.pn_Control = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Maxsize = new System.Windows.Forms.Button();
             this.btn_Close = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pn_Main = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pn_Menu.SuspendLayout();
@@ -76,7 +77,7 @@
             this.pn_PhongBan.SuspendLayout();
             this.pn_ChuyenKhoa.SuspendLayout();
             this.pn_CaiDat.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pn_Header.SuspendLayout();
             this.pn_Control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -89,10 +90,10 @@
             this.hệThốngToolStripMenuItem,
             this.nhânViênToolStripMenuItem,
             this.saoLưuPhụcHồiToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 40);
+            this.menuStrip1.Location = new System.Drawing.Point(250, 40);
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(5);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1179, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +142,8 @@
             this.sidebar.Controls.Add(this.pn_PhongBan);
             this.sidebar.Controls.Add(this.pn_ChuyenKhoa);
             this.sidebar.Controls.Add(this.pn_CaiDat);
-            this.sidebar.Location = new System.Drawing.Point(0, 64);
+            this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebar.Location = new System.Drawing.Point(0, 40);
             this.sidebar.MaximumSize = new System.Drawing.Size(250, 1200);
             this.sidebar.MinimumSize = new System.Drawing.Size(85, 900);
             this.sidebar.Name = "sidebar";
@@ -452,18 +454,18 @@
             this.btn_CaiDat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CaiDat.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pn_Header
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.pn_Control);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1179, 40);
-            this.panel1.TabIndex = 12;
+            this.pn_Header.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pn_Header.Controls.Add(this.pn_Control);
+            this.pn_Header.Controls.Add(this.label1);
+            this.pn_Header.Controls.Add(this.pictureBox1);
+            this.pn_Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pn_Header.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pn_Header.Location = new System.Drawing.Point(0, 0);
+            this.pn_Header.Name = "pn_Header";
+            this.pn_Header.Size = new System.Drawing.Size(1200, 40);
+            this.pn_Header.TabIndex = 12;
             // 
             // pn_Control
             // 
@@ -471,7 +473,7 @@
             this.pn_Control.Controls.Add(this.btn_Maxsize);
             this.pn_Control.Controls.Add(this.btn_Close);
             this.pn_Control.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Control.Location = new System.Drawing.Point(1059, 0);
+            this.pn_Control.Location = new System.Drawing.Point(1080, 0);
             this.pn_Control.Name = "pn_Control";
             this.pn_Control.Size = new System.Drawing.Size(120, 40);
             this.pn_Control.TabIndex = 2;
@@ -532,10 +534,19 @@
             this.pictureBox1.Location = new System.Drawing.Point(500, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(34, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(55, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // pn_Main
+            // 
+            this.pn_Main.BackColor = System.Drawing.Color.White;
+            this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Main.Location = new System.Drawing.Point(250, 68);
+            this.pn_Main.Name = "pn_Main";
+            this.pn_Main.Size = new System.Drawing.Size(950, 832);
+            this.pn_Main.TabIndex = 13;
             // 
             // FrmMain
             // 
@@ -545,9 +556,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1200, 900);
+            this.Controls.Add(this.pn_Main);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.sidebar);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pn_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1900, 1100);
@@ -570,7 +582,7 @@
             this.pn_PhongBan.ResumeLayout(false);
             this.pn_ChuyenKhoa.ResumeLayout(false);
             this.pn_CaiDat.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pn_Header.ResumeLayout(false);
             this.pn_Control.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -607,12 +619,13 @@
         private Button btn_PhongBan;
         private Panel pn_ChuyenKhoa;
         private Button btn_ChuyenKhoa;
-        private Panel panel1;
+        private Panel pn_Header;
         private Label label1;
         private PictureBox pictureBox1;
         private Panel pn_Control;
         private Button button1;
         private Button btn_Maxsize;
         private Button btn_Close;
+        private Panel pn_Main;
     }
 }
