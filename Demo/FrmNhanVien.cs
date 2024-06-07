@@ -20,6 +20,7 @@ namespace Demo
         public FrmNhanVien()
         {
             InitializeComponent();
+            //this.CenterToScreen = true;
         }
 
         private void FrmNhanVien_Load(object sender, EventArgs e)
