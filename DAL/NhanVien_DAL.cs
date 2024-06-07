@@ -95,5 +95,44 @@ namespace DAL
             }
             return false;
         }
+        public bool deleteNhanVien(int maNV)
+        {
+            try
+            {
+                conn.OpenConnect();
+                string query = "DELETE FROM NhanVien WHERE MaNV = @MaNV";
+                SqlCommand cmd = new SqlCommand(query, conn.Connect);
+
+                cmd.Parameters.AddWithValue("@MaNV", maNV);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                conn.CloseConnect();
+            }
+            return false;
+        }
+        public DataTable search(string search)
+        {
+            string query = "SELECT * FROM NHANVIEN WHERE HoTen LIKE @HoTen";
+            SqlDataAdapter da = new SqlDataAdapter(query, Connect);
+            da.SelectCommand.Parameters.AddWithValue("@HoTen", "%" + search + "%");
+            DataTable dtNhanVien = new DataTable();
+            da.Fill(dtNhanVien);
+            return dtNhanVien;
+        }
+        public int countNhanVien()
+        {
+            conn.OpenConnect();
+            string query = "SELECT COUNT(*) FROM NHANVIEN";
+            SqlCommand cmd = new SqlCommand(query, Connect);
+            int tongSoLuongNhanVien = (int)cmd.ExecuteScalar();
+            conn.CloseConnect();
+            return tongSoLuongNhanVien;
+        }
     }
 }
