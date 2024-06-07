@@ -50,6 +50,7 @@ namespace Demo
                         txt_Email.Text = row.Cells["Email"].Value.ToString();
                         txt_Tuoi.Text = row.Cells["Tuoi"].Value.ToString();
                         txt_HocVan.Text = row.Cells["HocVan"].Value.ToString();
+                        cbb_NhomQuyen.Text = row.Cells["ChucVu"].Value.ToString();
 
                     }
                 }
@@ -93,8 +94,8 @@ namespace Demo
                     row["DiaChi"],
                     row["HocVan"],
                     row["Email"],
-                    //row["KinhNghiem"],
-                    row["Tuoi"]
+                    row["Tuoi"],
+                    row["ChucVu"]
                 );
             }
         }
@@ -130,7 +131,11 @@ namespace Demo
         private void toolStripbtn_Luu_Click(object sender, EventArgs e)
         {
             if (txt_HoTen.Text == "" || txt_SDT.Text == "" || txt_Email.Text == "" || txt_Tuoi.Text == "" || txt_DiaChi.Text == "" || txt_HocVan.Text == "")
+            {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!!!");
+                return;
+            }
+
             NhanVien_DTO nv = new NhanVien_DTO();
             nv.MaNV = int.Parse(txt_MaNV.Text);
             nv.HoTen = txt_HoTen.Text;
@@ -150,6 +155,69 @@ namespace Demo
             {
                 MessageBox.Show("Cập nhật thông tin nhân viên thất bại");
             }
+        }
+
+        private void toolStripbtn_Xoa_Click(object sender, EventArgs e)
+        {
+            if (txt_MaNV.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên cần xóa!!");
+                return;
+            }
+            int maNV = int.Parse(txt_MaNV.Text);
+            if (nhanVienBLL.deleteNhanVien(maNV))
+            {
+                MessageBox.Show("Xóa nhân viên có Mã : " + txt_MaNV.Text + " thành công");
+                Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Xóa thất bại!!");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Thiết lập các thuộc tính của OpenFileDialog
+            openFileDialog.Title = "Chọn ảnh";
+            openFileDialog.Filter = "Image files (*.jpg, *.png, *.gif) | *.jpg; *.png; *.gif";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            // Hiển thị hộp thoại chọn tệp tin
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Lấy đường dẫn của tệp tin được chọn
+                string selectedImagePath = openFileDialog.FileName;
+                Image selectedImage = Image.FromFile(selectedImagePath);
+                // Hiển thị ảnh trong PictureBox
+                pictureBox1.Image = selectedImage;
+                pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+
+            }
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string search = txt_Search.Text;
+            var nhanVienListByName = nhanVienBLL.search(search);
+            dtgv_NhanVien.Rows.Clear();
+            for (int i = 0; i < nhanVienListByName.Rows.Count; i++)
+            {
+                DataRow row = nhanVienListByName.Rows[i];
+                dtgv_NhanVien.Rows.Add(
+                    row["MaNV"],
+                    row["HoTen"],
+                    row["SDT"],
+                    row["DiaChi"],
+                    row["HocVan"],
+                    row["Email"],
+                    row["Tuoi"],
+                    row["ChucVu"]
+                );
+            }
+            txt_SoLuongNV.Text = nhanVienBLL.countNhanVien().ToString();
         }
     }
 }

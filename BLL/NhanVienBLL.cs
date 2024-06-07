@@ -24,5 +24,17 @@ namespace BLL
         {
             return nv_dal.updateNhanVien(nv);
         }
+        public bool deleteNhanVien(int maNV)
+        {
+            return nv_dal.deleteNhanVien(maNV);
+        }
+        public DataTable search(string search)
+        {
+            return nv_dal.search(search);
+        }
+        public int countNhanVien()
+        {
+            return nv_dal.countNhanVien();
+        }
     }
 }

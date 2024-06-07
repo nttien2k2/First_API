@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saoLưuPhụcHồiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_DanhMuc_Timer = new System.Windows.Forms.Timer(this.components);
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
@@ -66,7 +62,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pn_Main = new System.Windows.Forms.Panel();
-            this.menuStrip1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pn_Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -81,44 +76,6 @@
             this.pn_Control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hệThốngToolStripMenuItem,
-            this.nhânViênToolStripMenuItem,
-            this.saoLưuPhụcHồiToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(250, 40);
-            this.menuStrip1.Margin = new System.Windows.Forms.Padding(5);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(950, 28);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // hệThốngToolStripMenuItem
-            // 
-            this.hệThốngToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
-            this.hệThốngToolStripMenuItem.Text = "Hệ thống";
-            // 
-            // nhânViênToolStripMenuItem
-            // 
-            this.nhânViênToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
-            this.nhânViênToolStripMenuItem.Text = "Nhân viên";
-            // 
-            // saoLưuPhụcHồiToolStripMenuItem
-            // 
-            this.saoLưuPhụcHồiToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.saoLưuPhụcHồiToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.saoLưuPhụcHồiToolStripMenuItem.Name = "saoLưuPhụcHồiToolStripMenuItem";
-            this.saoLưuPhụcHồiToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
-            this.saoLưuPhụcHồiToolStripMenuItem.Text = "Sao Lưu & Phục Hồi";
-            this.saoLưuPhụcHồiToolStripMenuItem.Click += new System.EventHandler(this.saoLưuPhụcHồiToolStripMenuItem_Click_1);
             // 
             // sidebarTimer
             // 
@@ -456,7 +413,7 @@
             // 
             // pn_Header
             // 
-            this.pn_Header.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pn_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
             this.pn_Header.Controls.Add(this.pn_Control);
             this.pn_Header.Controls.Add(this.label1);
             this.pn_Header.Controls.Add(this.pictureBox1);
@@ -543,9 +500,9 @@
             // 
             this.pn_Main.BackColor = System.Drawing.Color.White;
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Main.Location = new System.Drawing.Point(250, 68);
+            this.pn_Main.Location = new System.Drawing.Point(250, 40);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(950, 832);
+            this.pn_Main.Size = new System.Drawing.Size(950, 860);
             this.pn_Main.TabIndex = 13;
             // 
             // FrmMain
@@ -557,11 +514,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1200, 900);
             this.Controls.Add(this.pn_Main);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.pn_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1900, 1100);
             this.MinimumSize = new System.Drawing.Size(1200, 900);
             this.Name = "FrmMain";
@@ -569,8 +524,6 @@
             this.Text = "MedicalPro";
             this.TransparencyKey = System.Drawing.SystemColors.ActiveCaptionText;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.sidebar.ResumeLayout(false);
             this.pn_Menu.ResumeLayout(false);
             this.pn_Menu.PerformLayout();
@@ -591,10 +544,6 @@
         }
 
         #endregion
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem hệThốngToolStripMenuItem;
-        private ToolStripMenuItem nhânViênToolStripMenuItem;
-        private ToolStripMenuItem saoLưuPhụcHồiToolStripMenuItem;
         private System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Timer btn_DanhMuc_Timer;
         private FlowLayoutPanel sidebar;
