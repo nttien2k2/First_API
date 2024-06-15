@@ -54,6 +54,9 @@
             this.btn_ChuyenKhoa = new System.Windows.Forms.Button();
             this.pn_CaiDat = new System.Windows.Forms.Panel();
             this.btn_CaiDat = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pn_Footer = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pn_Header = new System.Windows.Forms.Panel();
             this.pn_Control = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,9 +75,11 @@
             this.pn_PhongBan.SuspendLayout();
             this.pn_ChuyenKhoa.SuspendLayout();
             this.pn_CaiDat.SuspendLayout();
+            this.pn_Footer.SuspendLayout();
             this.pn_Header.SuspendLayout();
             this.pn_Control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pn_Main.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarTimer
@@ -91,6 +96,7 @@
             // 
             this.sidebar.AutoSize = true;
             this.sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.sidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sidebar.Controls.Add(this.pn_Menu);
             this.sidebar.Controls.Add(this.pn_Dashboard);
             this.sidebar.Controls.Add(this.pn_DanhMuc);
@@ -101,10 +107,10 @@
             this.sidebar.Controls.Add(this.pn_CaiDat);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 40);
-            this.sidebar.MaximumSize = new System.Drawing.Size(250, 1200);
-            this.sidebar.MinimumSize = new System.Drawing.Size(85, 900);
+            this.sidebar.MaximumSize = new System.Drawing.Size(250, 1170);
+            this.sidebar.MinimumSize = new System.Drawing.Size(85, 870);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(250, 900);
+            this.sidebar.Size = new System.Drawing.Size(250, 870);
             this.sidebar.TabIndex = 10;
             // 
             // pn_Menu
@@ -235,6 +241,7 @@
             this.btn_BenhAn.Text = "            Bệnh án";
             this.btn_BenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_BenhAn.UseVisualStyleBackColor = false;
+            this.btn_BenhAn.Click += new System.EventHandler(this.btn_BenhAn_Click);
             // 
             // btn_TBYT
             // 
@@ -383,6 +390,7 @@
             this.btn_ChuyenKhoa.Text = "            Chuyên khoa";
             this.btn_ChuyenKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_ChuyenKhoa.UseVisualStyleBackColor = false;
+            this.btn_ChuyenKhoa.Click += new System.EventHandler(this.btn_ChuyenKhoa_Click);
             // 
             // pn_CaiDat
             // 
@@ -410,10 +418,42 @@
             this.btn_CaiDat.Text = "            Cài đặt";
             this.btn_CaiDat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_CaiDat.UseVisualStyleBackColor = true;
+            this.btn_CaiDat.Click += new System.EventHandler(this.btn_CaiDat_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(271, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Version:";
+            // 
+            // pn_Footer
+            // 
+            this.pn_Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.pn_Footer.Controls.Add(this.label4);
+            this.pn_Footer.Controls.Add(this.label3);
+            this.pn_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pn_Footer.Location = new System.Drawing.Point(0, 823);
+            this.pn_Footer.Name = "pn_Footer";
+            this.pn_Footer.Size = new System.Drawing.Size(948, 35);
+            this.pn_Footer.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(402, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Cập nhật ngày:";
             // 
             // pn_Header
             // 
-            this.pn_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.pn_Header.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pn_Header.Controls.Add(this.pn_Control);
             this.pn_Header.Controls.Add(this.label1);
             this.pn_Header.Controls.Add(this.pictureBox1);
@@ -499,6 +539,8 @@
             // pn_Main
             // 
             this.pn_Main.BackColor = System.Drawing.Color.White;
+            this.pn_Main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_Main.Controls.Add(this.pn_Footer);
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(250, 40);
             this.pn_Main.Name = "pn_Main";
@@ -535,9 +577,12 @@
             this.pn_PhongBan.ResumeLayout(false);
             this.pn_ChuyenKhoa.ResumeLayout(false);
             this.pn_CaiDat.ResumeLayout(false);
+            this.pn_Footer.ResumeLayout(false);
+            this.pn_Footer.PerformLayout();
             this.pn_Header.ResumeLayout(false);
             this.pn_Control.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pn_Main.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,5 +621,8 @@
         private Button btn_Maxsize;
         private Button btn_Close;
         private Panel pn_Main;
+        private Panel pn_Footer;
+        private Label label3;
+        private Label label4;
     }
 }

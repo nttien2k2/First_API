@@ -30,23 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPhongBan));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtn_Luu = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtn_Xoa = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtn_Refresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtn_Thoat = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pn_Right = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MaPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenPB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv_PhongBan = new System.Windows.Forms.DataGridView();
+            this.MaPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenPhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VietTat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pn_Left = new System.Windows.Forms.Panel();
+            this.txt_VietTat = new Demo.Controls.TextBox_NTT();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_MaPhongBan = new Demo.Controls.TextBox_NTT();
             this.btn_ThemPB = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox_ntt2 = new Demo.Controls.TextBox_NTT();
-            this.textBox_ntt1 = new Demo.Controls.TextBox_NTT();
+            this.txt_TenPhongBan = new Demo.Controls.TextBox_NTT();
             this.ckb_TrangThai = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,7 +58,7 @@
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pn_Right.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_PhongBan)).BeginInit();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,64 +68,67 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton3,
-            this.toolStripButton2,
-            this.toolStripButton4});
+            this.toolStripBtn_Luu,
+            this.toolStripBtn_Xoa,
+            this.toolStripBtn_Refresh,
+            this.toolStripBtn_Thoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip1.Size = new System.Drawing.Size(952, 50);
             this.toolStrip1.TabIndex = 1;
             // 
-            // toolStripButton1
+            // toolStripBtn_Luu
             // 
-            this.toolStripButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
-            this.toolStripButton1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10);
-            this.toolStripButton1.Size = new System.Drawing.Size(87, 47);
-            this.toolStripButton1.Text = " Lưu";
+            this.toolStripBtn_Luu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.toolStripBtn_Luu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripBtn_Luu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripBtn_Luu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtn_Luu.Image")));
+            this.toolStripBtn_Luu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtn_Luu.Name = "toolStripBtn_Luu";
+            this.toolStripBtn_Luu.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStripBtn_Luu.Size = new System.Drawing.Size(87, 47);
+            this.toolStripBtn_Luu.Text = " Lưu";
+            this.toolStripBtn_Luu.Click += new System.EventHandler(this.toolStripBtn_Luu_Click);
             // 
-            // toolStripButton3
+            // toolStripBtn_Xoa
             // 
-            this.toolStripButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
-            this.toolStripButton3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButton3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Padding = new System.Windows.Forms.Padding(10);
-            this.toolStripButton3.Size = new System.Drawing.Size(88, 47);
-            this.toolStripButton3.Text = " Xóa";
+            this.toolStripBtn_Xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.toolStripBtn_Xoa.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripBtn_Xoa.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripBtn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtn_Xoa.Image")));
+            this.toolStripBtn_Xoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtn_Xoa.Name = "toolStripBtn_Xoa";
+            this.toolStripBtn_Xoa.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStripBtn_Xoa.Size = new System.Drawing.Size(88, 47);
+            this.toolStripBtn_Xoa.Text = " Xóa";
+            this.toolStripBtn_Xoa.Click += new System.EventHandler(this.toolStripBtn_Xoa_Click);
             // 
-            // toolStripButton2
+            // toolStripBtn_Refresh
             // 
-            this.toolStripButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
-            this.toolStripButton2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10);
-            this.toolStripButton2.Size = new System.Drawing.Size(115, 47);
-            this.toolStripButton2.Text = " Refresh";
+            this.toolStripBtn_Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.toolStripBtn_Refresh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripBtn_Refresh.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripBtn_Refresh.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtn_Refresh.Image")));
+            this.toolStripBtn_Refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtn_Refresh.Name = "toolStripBtn_Refresh";
+            this.toolStripBtn_Refresh.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStripBtn_Refresh.Size = new System.Drawing.Size(115, 47);
+            this.toolStripBtn_Refresh.Text = " Refresh";
+            this.toolStripBtn_Refresh.Click += new System.EventHandler(this.toolStripBtn_Refresh_Click);
             // 
-            // toolStripButton4
+            // toolStripBtn_Thoat
             // 
-            this.toolStripButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
-            this.toolStripButton4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.toolStripButton4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Padding = new System.Windows.Forms.Padding(10);
-            this.toolStripButton4.Size = new System.Drawing.Size(103, 47);
-            this.toolStripButton4.Text = " Thoát";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            this.toolStripBtn_Thoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.toolStripBtn_Thoat.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.toolStripBtn_Thoat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.toolStripBtn_Thoat.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtn_Thoat.Image")));
+            this.toolStripBtn_Thoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtn_Thoat.Name = "toolStripBtn_Thoat";
+            this.toolStripBtn_Thoat.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStripBtn_Thoat.Size = new System.Drawing.Size(103, 47);
+            this.toolStripBtn_Thoat.Text = " Thoát";
+            this.toolStripBtn_Thoat.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // panel4
             // 
@@ -138,51 +143,53 @@
             // 
             // pn_Right
             // 
-            this.pn_Right.Controls.Add(this.dataGridView1);
+            this.pn_Right.Controls.Add(this.dtgv_PhongBan);
             this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Right.Location = new System.Drawing.Point(320, 50);
             this.pn_Right.Name = "pn_Right";
             this.pn_Right.Size = new System.Drawing.Size(632, 770);
             this.pn_Right.TabIndex = 3;
             // 
-            // dataGridView1
+            // dtgv_PhongBan
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaPB,
-            this.TenPB,
-            this.SDT,
+            this.dtgv_PhongBan.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_PhongBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_PhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_PhongBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaPhongBan,
+            this.TenPhongBan,
+            this.VietTat,
             this.TrangThai});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(632, 770);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgv_PhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_PhongBan.Location = new System.Drawing.Point(0, 0);
+            this.dtgv_PhongBan.Name = "dtgv_PhongBan";
+            this.dtgv_PhongBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgv_PhongBan.RowHeadersWidth = 51;
+            this.dtgv_PhongBan.RowTemplate.Height = 29;
+            this.dtgv_PhongBan.Size = new System.Drawing.Size(632, 770);
+            this.dtgv_PhongBan.TabIndex = 0;
+            this.dtgv_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_PhongBan_CellClick);
             // 
-            // MaPB
+            // MaPhongBan
             // 
-            this.MaPB.HeaderText = "Mã";
-            this.MaPB.MinimumWidth = 6;
-            this.MaPB.Name = "MaPB";
-            this.MaPB.Width = 150;
+            this.MaPhongBan.HeaderText = "Mã";
+            this.MaPhongBan.MinimumWidth = 6;
+            this.MaPhongBan.Name = "MaPhongBan";
+            this.MaPhongBan.Width = 50;
             // 
-            // TenPB
+            // TenPhongBan
             // 
-            this.TenPB.HeaderText = "Tên";
-            this.TenPB.MinimumWidth = 6;
-            this.TenPB.Name = "TenPB";
-            this.TenPB.Width = 215;
+            this.TenPhongBan.HeaderText = "Tên";
+            this.TenPhongBan.MinimumWidth = 6;
+            this.TenPhongBan.Name = "TenPhongBan";
+            this.TenPhongBan.Width = 200;
             // 
-            // SDT
+            // VietTat
             // 
-            this.SDT.HeaderText = "Điện thoại";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.Width = 150;
+            this.VietTat.HeaderText = "Viết tắt";
+            this.VietTat.MinimumWidth = 6;
+            this.VietTat.Name = "VietTat";
+            this.VietTat.Width = 150;
             // 
             // TrangThai
             // 
@@ -195,11 +202,13 @@
             // 
             this.pn_Left.BackColor = System.Drawing.Color.White;
             this.pn_Left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_Left.Controls.Add(this.txt_VietTat);
+            this.pn_Left.Controls.Add(this.label6);
+            this.pn_Left.Controls.Add(this.txt_MaPhongBan);
             this.pn_Left.Controls.Add(this.btn_ThemPB);
             this.pn_Left.Controls.Add(this.label5);
             this.pn_Left.Controls.Add(this.label4);
-            this.pn_Left.Controls.Add(this.textBox_ntt2);
-            this.pn_Left.Controls.Add(this.textBox_ntt1);
+            this.pn_Left.Controls.Add(this.txt_TenPhongBan);
             this.pn_Left.Controls.Add(this.ckb_TrangThai);
             this.pn_Left.Controls.Add(this.label3);
             this.pn_Left.Controls.Add(this.label2);
@@ -207,10 +216,63 @@
             this.pn_Left.Controls.Add(this.pictureBox1);
             this.pn_Left.Controls.Add(this.label1);
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pn_Left.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
             this.pn_Left.Size = new System.Drawing.Size(320, 770);
             this.pn_Left.TabIndex = 2;
+            // 
+            // txt_VietTat
+            // 
+            this.txt_VietTat.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_VietTat.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.txt_VietTat.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_VietTat.BorderRadius = 5;
+            this.txt_VietTat.BorderSize = 1;
+            this.txt_VietTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_VietTat.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_VietTat.Location = new System.Drawing.Point(79, 168);
+            this.txt_VietTat.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_VietTat.Multiline = false;
+            this.txt_VietTat.Name = "txt_VietTat";
+            this.txt_VietTat.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_VietTat.PasswordChar = false;
+            this.txt_VietTat.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_VietTat.PlaceholderText = "";
+            this.txt_VietTat.Size = new System.Drawing.Size(200, 35);
+            this.txt_VietTat.TabIndex = 12;
+            this.txt_VietTat.UnderlinedStyle = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(12, 173);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Viết tắt:";
+            // 
+            // txt_MaPhongBan
+            // 
+            this.txt_MaPhongBan.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_MaPhongBan.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.txt_MaPhongBan.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_MaPhongBan.BorderRadius = 5;
+            this.txt_MaPhongBan.BorderSize = 1;
+            this.txt_MaPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_MaPhongBan.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_MaPhongBan.Location = new System.Drawing.Point(80, 82);
+            this.txt_MaPhongBan.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_MaPhongBan.Multiline = false;
+            this.txt_MaPhongBan.Name = "txt_MaPhongBan";
+            this.txt_MaPhongBan.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_MaPhongBan.PasswordChar = false;
+            this.txt_MaPhongBan.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_MaPhongBan.PlaceholderText = "";
+            this.txt_MaPhongBan.Size = new System.Drawing.Size(200, 35);
+            this.txt_MaPhongBan.TabIndex = 8;
+            this.txt_MaPhongBan.UnderlinedStyle = false;
             // 
             // btn_ThemPB
             // 
@@ -220,19 +282,20 @@
             this.btn_ThemPB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPB.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemPB.Image")));
             this.btn_ThemPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemPB.Location = new System.Drawing.Point(81, 215);
+            this.btn_ThemPB.Location = new System.Drawing.Point(80, 257);
             this.btn_ThemPB.Name = "btn_ThemPB";
             this.btn_ThemPB.Size = new System.Drawing.Size(148, 53);
             this.btn_ThemPB.TabIndex = 10;
             this.btn_ThemPB.Text = "   Thêm mới";
             this.btn_ThemPB.UseVisualStyleBackColor = false;
+            this.btn_ThemPB.Click += new System.EventHandler(this.btn_ThemPB_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(267, 132);
+            this.label5.Location = new System.Drawing.Point(287, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 25);
             this.label5.TabIndex = 9;
@@ -243,61 +306,39 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(266, 84);
+            this.label4.Location = new System.Drawing.Point(286, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "*";
             // 
-            // textBox_ntt2
+            // txt_TenPhongBan
             // 
-            this.textBox_ntt2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox_ntt2.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.textBox_ntt2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.textBox_ntt2.BorderRadius = 5;
-            this.textBox_ntt2.BorderSize = 1;
-            this.textBox_ntt2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_ntt2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox_ntt2.Location = new System.Drawing.Point(60, 128);
-            this.textBox_ntt2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_ntt2.Multiline = false;
-            this.textBox_ntt2.Name = "textBox_ntt2";
-            this.textBox_ntt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBox_ntt2.PasswordChar = false;
-            this.textBox_ntt2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBox_ntt2.PlaceholderText = "";
-            this.textBox_ntt2.Size = new System.Drawing.Size(200, 35);
-            this.textBox_ntt2.TabIndex = 7;
-            this.textBox_ntt2.Text = "";
-            this.textBox_ntt2.UnderlinedStyle = false;
-            // 
-            // textBox_ntt1
-            // 
-            this.textBox_ntt1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox_ntt1.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.textBox_ntt1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.textBox_ntt1.BorderRadius = 5;
-            this.textBox_ntt1.BorderSize = 1;
-            this.textBox_ntt1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox_ntt1.Location = new System.Drawing.Point(60, 80);
-            this.textBox_ntt1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox_ntt1.Multiline = false;
-            this.textBox_ntt1.Name = "textBox_ntt1";
-            this.textBox_ntt1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.textBox_ntt1.PasswordChar = false;
-            this.textBox_ntt1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.textBox_ntt1.PlaceholderText = "";
-            this.textBox_ntt1.Size = new System.Drawing.Size(200, 38);
-            this.textBox_ntt1.TabIndex = 6;
-            this.textBox_ntt1.Text = "";
-            this.textBox_ntt1.UnderlinedStyle = false;
+            this.txt_TenPhongBan.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_TenPhongBan.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.txt_TenPhongBan.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_TenPhongBan.BorderRadius = 5;
+            this.txt_TenPhongBan.BorderSize = 1;
+            this.txt_TenPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_TenPhongBan.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txt_TenPhongBan.Location = new System.Drawing.Point(80, 125);
+            this.txt_TenPhongBan.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_TenPhongBan.Multiline = false;
+            this.txt_TenPhongBan.Name = "txt_TenPhongBan";
+            this.txt_TenPhongBan.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_TenPhongBan.PasswordChar = false;
+            this.txt_TenPhongBan.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_TenPhongBan.PlaceholderText = "";
+            this.txt_TenPhongBan.Size = new System.Drawing.Size(200, 35);
+            this.txt_TenPhongBan.TabIndex = 7;
+            this.txt_TenPhongBan.UnderlinedStyle = false;
             // 
             // ckb_TrangThai
             // 
             this.ckb_TrangThai.AutoSize = true;
-            this.ckb_TrangThai.Location = new System.Drawing.Point(60, 185);
+            this.ckb_TrangThai.Location = new System.Drawing.Point(80, 210);
             this.ckb_TrangThai.Name = "ckb_TrangThai";
-            this.ckb_TrangThai.Size = new System.Drawing.Size(86, 24);
+            this.ckb_TrangThai.Size = new System.Drawing.Size(88, 24);
             this.ckb_TrangThai.TabIndex = 5;
             this.ckb_TrangThai.Text = "Sử dụng";
             this.ckb_TrangThai.UseVisualStyleBackColor = true;
@@ -305,18 +346,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 137);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(37, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 20);
+            this.label3.Size = new System.Drawing.Size(37, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tên:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 85);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(39, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 20);
+            this.label2.Size = new System.Drawing.Size(35, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mã:";
             // 
@@ -357,15 +400,15 @@
             this.ClientSize = new System.Drawing.Size(952, 820);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IsMdiContainer = true;
             this.Name = "FrmPhongBan";
             this.Text = "FrmChuyenKhoa";
+            this.Load += new System.EventHandler(this.FrmPhongBan_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.pn_Right.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_PhongBan)).EndInit();
             this.pn_Left.ResumeLayout(false);
             this.pn_Left.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -376,28 +419,31 @@
         #endregion
 
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton3;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton4;
+        private ToolStripButton toolStripBtn_Luu;
+        private ToolStripButton toolStripBtn_Xoa;
+        private ToolStripButton toolStripBtn_Refresh;
+        private ToolStripButton toolStripBtn_Thoat;
         private Panel panel4;
         private Panel pn_Left;
         private Panel pn_Right;
-        private DataGridView dataGridView1;
+        private DataGridView dtgv_PhongBan;
         private Button btn_ThemPB;
         private Label label5;
         private Label label4;
-        private Controls.TextBox_NTT textBox_ntt2;
-        private Controls.TextBox_NTT textBox_ntt1;
+        private Controls.TextBox_NTT txt_TenPhongBan;
         private CheckBox ckb_TrangThai;
         private Label label3;
         private Label label2;
         private Button button1;
         private PictureBox pictureBox1;
         private Label label1;
-        private DataGridViewTextBoxColumn MaPB;
-        private DataGridViewTextBoxColumn TenPB;
         private DataGridViewTextBoxColumn SDT;
+        private Controls.TextBox_NTT txt_MaPhongBan;
+        private Controls.TextBox_NTT txt_VietTat;
+        private Label label6;
+        private DataGridViewTextBoxColumn MaPhongBan;
+        private DataGridViewTextBoxColumn TenPhongBan;
+        private DataGridViewTextBoxColumn VietTat;
         private DataGridViewCheckBoxColumn TrangThai;
     }
 }

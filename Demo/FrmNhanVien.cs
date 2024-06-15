@@ -16,7 +16,8 @@ namespace Demo
     public partial class FrmNhanVien : Form
     {
         DbContext conn = new DbContext();
-        NhanVienBLL nhanVienBLL = new NhanVienBLL();
+        NhanVien_BLL nhanVienBLL = new NhanVien_BLL();
+        Export_BLL export_bll = new Export_BLL();
         public FrmNhanVien()
         {
             InitializeComponent();
@@ -27,11 +28,38 @@ namespace Demo
             loadcbo_NhomQuyen();
             Load_NhanVien();
         }
+        private void Load_NhanVien()
+        {
+            var nhanVienList = nhanVienBLL.getNhanVien();
+            dtgv_NhanVien.Rows.Clear();
+            for (int i = 0; i < nhanVienList.Rows.Count; i++)
+            {
+                DataRow row = nhanVienList.Rows[i];
+                dtgv_NhanVien.Rows.Add(
+                    row["MaNV"],
+                    row["HoTen"],
+                    row["SDT"],
+                    row["DiaChi"],
+                    //row["HocVan"],
+                    row["Email"],
+                    row["Tuoi"],
+                    row["ChucVu"]
+                );
+            }
+        }
+        public void loadcbo_NhomQuyen()
+        {
+            string query = "SELECT name FROM sys.database_principals WHERE type = 'R' AND is_fixed_role = 0 AND name <> 'public'";
+            string tableName = "sys.database_principals";
+            conn.getDataAdapter(query, tableName);
+            cbb_NhomQuyen.DataSource = conn.DSet.Tables[tableName];
+            cbb_NhomQuyen.DisplayMember = "name";
+            cbb_NhomQuyen.ValueMember = "name";
+        }
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void dtgv_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dtgv_NhanVien.Rows.Count)
@@ -49,14 +77,13 @@ namespace Demo
                         txt_DiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                         txt_Email.Text = row.Cells["Email"].Value.ToString();
                         txt_Tuoi.Text = row.Cells["Tuoi"].Value.ToString();
-                        txt_HocVan.Text = row.Cells["HocVan"].Value.ToString();
+                        //txt_HocVan.Text = row.Cells["HocVan"].Value.ToString();
                         cbb_NhomQuyen.Text = row.Cells["ChucVu"].Value.ToString();
 
                     }
                 }
             }
         }
-
         private void btn_Them_Click(object sender, EventArgs e)
         {
             if (txt_HoTen.Text == "" || txt_SDT.Text == "" || txt_Email.Text == "" || txt_Tuoi.Text == "" || txt_DiaChi.Text == "" || txt_HocVan.Text == "")
@@ -68,66 +95,18 @@ namespace Demo
             nv.Email = txt_Email.Text;
             nv.DiaChi = txt_DiaChi.Text;
             nv.HocVan = txt_HocVan.Text;
-            nv.ChucVu = cbb_NhomQuyen.SelectedValue.ToString();
+            //nv.ChucVu = cbb_NhomQuyen.SelectedValue.ToString();
 
             if (nhanVienBLL.insertNhanVien(nv))
             {
                 MessageBox.Show("Thêm nhân viên thành công");
-                Refresh();
+                RefreshNhanVien();
             }
             else
             {
                 MessageBox.Show("Thêm nhân viên thất bại");
             }
         }
-        private void Load_NhanVien()
-        {
-            var nhanVienList = nhanVienBLL.getNhanVien();
-            dtgv_NhanVien.Rows.Clear();
-            for (int i = 0; i < nhanVienList.Rows.Count; i++)
-            {
-                DataRow row = nhanVienList.Rows[i];
-                dtgv_NhanVien.Rows.Add(
-                    row["MaNV"],
-                    row["HoTen"],
-                    row["SDT"],
-                    row["DiaChi"],
-                    row["HocVan"],
-                    row["Email"],
-                    row["Tuoi"],
-                    row["ChucVu"]
-                );
-            }
-        }
-
-        public void loadcbo_NhomQuyen()
-        {
-            string query = "SELECT name FROM sys.database_principals WHERE type = 'R' AND is_fixed_role = 0 AND name <> 'public'";
-            string tableName = "sys.database_principals";
-            conn.getDataAdapter(query, tableName);
-            cbb_NhomQuyen.DataSource = conn.DSet.Tables[tableName];
-            cbb_NhomQuyen.DisplayMember = "name";
-            cbb_NhomQuyen.ValueMember = "name";
-        }
-
-        public void Refresh()
-        {
-            txt_HoTen.Clear();
-            txt_DiaChi.Clear();
-            txt_HocVan.Clear();
-            txt_CCCD.Clear();
-            txt_MaNV.Clear();
-            txt_SDT.Clear();
-            txt_Tuoi.Clear();
-            txt_Email.Clear();
-            Load_NhanVien();
-        }
-
-        private void toolStripbtn_Refresh_Click(object sender, EventArgs e)
-        {
-            Refresh();
-        }
-
         private void toolStripbtn_Luu_Click(object sender, EventArgs e)
         {
             if (txt_HoTen.Text == "" || txt_SDT.Text == "" || txt_Email.Text == "" || txt_Tuoi.Text == "" || txt_DiaChi.Text == "" || txt_HocVan.Text == "")
@@ -149,14 +128,13 @@ namespace Demo
             if (nhanVienBLL.updateNhanVien(nv))
             {
                 MessageBox.Show("Cập nhật thông tin nhân viên thành công");
-                Refresh();
+                RefreshNhanVien();
             }
             else
             {
                 MessageBox.Show("Cập nhật thông tin nhân viên thất bại");
             }
         }
-
         private void toolStripbtn_Xoa_Click(object sender, EventArgs e)
         {
             if (txt_MaNV.Text == "")
@@ -168,14 +146,29 @@ namespace Demo
             if (nhanVienBLL.deleteNhanVien(maNV))
             {
                 MessageBox.Show("Xóa nhân viên có Mã : " + txt_MaNV.Text + " thành công");
-                Refresh();
+                RefreshNhanVien();
             }
             else
             {
                 MessageBox.Show("Xóa thất bại!!");
             }
         }
-
+        public void RefreshNhanVien()
+        {
+            txt_HoTen.Clear();
+            txt_DiaChi.Clear();
+            txt_HocVan.Clear();
+            txt_CCCD.Clear();
+            txt_MaNV.Clear();
+            txt_SDT.Clear();
+            txt_Tuoi.Clear();
+            txt_Email.Clear();
+            Load_NhanVien();
+        }
+        private void toolStripbtn_Refresh_Click(object sender, EventArgs e)
+        {
+            RefreshNhanVien();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -197,27 +190,79 @@ namespace Demo
 
             }
         }
-
         private void btn_Search_Click(object sender, EventArgs e)
         {
             string search = txt_Search.Text;
-            var nhanVienListByName = nhanVienBLL.search(search);
-            dtgv_NhanVien.Rows.Clear();
-            for (int i = 0; i < nhanVienListByName.Rows.Count; i++)
+            if (txt_Search.Text == "")
             {
-                DataRow row = nhanVienListByName.Rows[i];
-                dtgv_NhanVien.Rows.Add(
-                    row["MaNV"],
-                    row["HoTen"],
-                    row["SDT"],
-                    row["DiaChi"],
-                    row["HocVan"],
-                    row["Email"],
-                    row["Tuoi"],
-                    row["ChucVu"]
-                );
+                Load_NhanVien();
             }
-            txt_SoLuongNV.Text = nhanVienBLL.countNhanVien().ToString();
+            else
+            {
+                var nhanVienListByName = nhanVienBLL.search(search);
+                dtgv_NhanVien.Rows.Clear();
+                for (int i = 0; i < nhanVienListByName.Rows.Count; i++)
+                {
+                    DataRow row = nhanVienListByName.Rows[i];
+                    dtgv_NhanVien.Rows.Add(
+                        row["MaNV"],
+                        row["HoTen"],
+                        row["SDT"],
+                        row["DiaChi"],
+                        //row["HocVan"],
+                        row["Email"],
+                        row["Tuoi"],
+                        row["ChucVu"]
+                    );
+                }
+            }
+            txt_SoLuongNV.Text = nhanVienBLL.countNhanVienBySearch(search).ToString();
+
+        }
+        private void toolStripBtn_PrintNV_Click(object sender, EventArgs e)
+        {
+            if (dtgv_NhanVien.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataTable dt = GetDataTableFromDataGridView(dtgv_NhanVien);
+            string sheetName = "Nhân viên";
+            string title = "Danh sách nhân viên";
+            export_bll.exportDSNhanVien(dt, sheetName, title);
+        }
+        private DataTable GetDataTableFromDataGridView(DataGridView dataGridView)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Thêm các cột vào DataTable
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Visible) // Chỉ thêm các cột đang hiển thị
+                {
+                    dataTable.Columns.Add(column.HeaderText, column.ValueType ?? typeof(string));
+                }
+            }
+
+            // Thêm các hàng vào DataTable
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (!row.IsNewRow) // Bỏ qua hàng trống cuối cùng
+                {
+                    DataRow dataRow = dataTable.NewRow();
+                    foreach (DataGridViewColumn column in dataGridView.Columns)
+                    {
+                        if (column.Visible) // Chỉ thêm dữ liệu từ các cột đang hiển thị
+                        {
+                            dataRow[column.HeaderText] = row.Cells[column.Index].Value ?? DBNull.Value;
+                        }
+                    }
+                    dataTable.Rows.Add(dataRow);
+                }
+            }
+
+            return dataTable;
         }
     }
 }

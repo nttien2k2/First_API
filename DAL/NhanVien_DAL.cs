@@ -1,4 +1,5 @@
 ﻿using DTO;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataTable = System.Data.DataTable;
 
 namespace DAL
 {
@@ -26,8 +28,8 @@ namespace DAL
             try
             {
                 conn.OpenConnect();
-                string query = "INSERT INTO NhanVien (HoTen, SDT, DiaChi, Email, KinhNghiem, HocVan, Tuoi, AnhDaiDien, ChucVu, MatKhau) " +
-                               "VALUES (@HoTen, @SDT, @DiaChi, @Email, @KinhNghiem, @HocVan, @Tuoi, @AnhDaiDien, @ChucVu, @MatKhau)";
+                string query = "INSERT INTO NhanVien (HoTen, SDT, DiaChi, Email, Tuoi, AnhDaiDien, ChucVu, MatKhau) " +
+                               "VALUES (@HoTen, @SDT, @DiaChi, @Email, @Tuoi, @AnhDaiDien, @ChucVu, @MatKhau)";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
 
                 //cmd.Parameters.AddWithValue("@MaNV", nhanVien.MaNV);
@@ -35,8 +37,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@SDT", nhanVien.SDT);
                 cmd.Parameters.AddWithValue("@DiaChi", nhanVien.DiaChi);
                 cmd.Parameters.AddWithValue("@Email", nhanVien.Email);
-                cmd.Parameters.AddWithValue("@KinhNghiem", "Khong co");
-                cmd.Parameters.AddWithValue("@HocVan", nhanVien.HocVan);
+                //cmd.Parameters.AddWithValue("@KinhNghiem", "Khong co");
+                //cmd.Parameters.AddWithValue("@HocVan", nhanVien.HocVan);
                 cmd.Parameters.AddWithValue("@Tuoi", nhanVien.Tuoi);
                 cmd.Parameters.AddWithValue("@AnhDaiDien", "image1.png");
                 cmd.Parameters.AddWithValue("@ChucVu", nhanVien.ChucVu);
@@ -63,8 +65,8 @@ namespace DAL
                                "SDT = @SDT, " +
                                "DiaChi = @DiaChi, " +
                                "Email = @Email, " +
-                               "KinhNghiem = @KinhNghiem, " +
-                               "HocVan = @HocVan, " +
+                               //"KinhNghiem = @KinhNghiem, " +
+                               //"HocVan = @HocVan, " +
                                "Tuoi = @Tuoi, " +
                                "AnhDaiDien = @AnhDaiDien, " +
                                "ChucVu = @ChucVu, " +
@@ -77,8 +79,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@SDT", nhanVien.SDT);
                 cmd.Parameters.AddWithValue("@DiaChi", nhanVien.DiaChi);
                 cmd.Parameters.AddWithValue("@Email", nhanVien.Email);
-                cmd.Parameters.AddWithValue("@KinhNghiem", "Sửa lần 1");
-                cmd.Parameters.AddWithValue("@HocVan", nhanVien.HocVan);
+               // cmd.Parameters.AddWithValue("@KinhNghiem", "Sửa lần 1");
+              //  cmd.Parameters.AddWithValue("@HocVan", nhanVien.HocVan);
                 cmd.Parameters.AddWithValue("@Tuoi", nhanVien.Tuoi);
                 cmd.Parameters.AddWithValue("@AnhDaiDien", "image.jpn");
                 cmd.Parameters.AddWithValue("@ChucVu", nhanVien.ChucVu);
@@ -134,5 +136,16 @@ namespace DAL
             conn.CloseConnect();
             return tongSoLuongNhanVien;
         }
+        public int countNhanVienBySearch(string search)
+        {
+            conn.OpenConnect();
+            string query = "SELECT COUNT(*) FROM NHANVIEN WHERE HoTen LIKE @HoTen";
+            SqlCommand cmd = new SqlCommand(query, Connect);
+            cmd.Parameters.AddWithValue("@HoTen", "%" + search + "%");
+            int soLuongNhanVien = (int)cmd.ExecuteScalar();
+            conn.CloseConnect();
+            return soLuongNhanVien;
+        }
+        
     }
 }
