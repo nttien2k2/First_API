@@ -37,12 +37,13 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.pn_Container = new System.Windows.Forms.Panel();
             this.pn_Main = new System.Windows.Forms.Panel();
+            this.txt_SoLuongNV = new Demo.Controls.TextBox_NTT();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txt_Search = new Demo.Controls.TextBox_NTT();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_AnhDaiDien = new System.Windows.Forms.Button();
             this.cbb_NhomQuyen = new System.Windows.Forms.ComboBox();
             this.txt_HocVan = new Demo.Controls.TextBox_NTT();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,11 +68,10 @@
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocVan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_SoLuongNV = new Demo.Controls.TextBox_NTT();
+            this.toolStripBtn_PrintNV = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.pn_Container.SuspendLayout();
             this.pn_Main.SuspendLayout();
@@ -90,6 +90,7 @@
             this.toolStripbtn_Luu,
             this.toolStripbtn_Xoa,
             this.toolStripbtn_Refresh,
+            this.toolStripBtn_PrintNV,
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -198,6 +199,26 @@
             this.pn_Main.Size = new System.Drawing.Size(950, 810);
             this.pn_Main.TabIndex = 0;
             // 
+            // txt_SoLuongNV
+            // 
+            this.txt_SoLuongNV.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txt_SoLuongNV.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.txt_SoLuongNV.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txt_SoLuongNV.BorderRadius = 5;
+            this.txt_SoLuongNV.BorderSize = 1;
+            this.txt_SoLuongNV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_SoLuongNV.Location = new System.Drawing.Point(4, 597);
+            this.txt_SoLuongNV.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_SoLuongNV.Multiline = false;
+            this.txt_SoLuongNV.Name = "txt_SoLuongNV";
+            this.txt_SoLuongNV.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txt_SoLuongNV.PasswordChar = false;
+            this.txt_SoLuongNV.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txt_SoLuongNV.PlaceholderText = "";
+            this.txt_SoLuongNV.Size = new System.Drawing.Size(48, 38);
+            this.txt_SoLuongNV.TabIndex = 92;
+            this.txt_SoLuongNV.UnderlinedStyle = false;
+            // 
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(296, 361);
@@ -243,7 +264,7 @@
             this.panel5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.button2);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btn_AnhDaiDien);
             this.panel5.Location = new System.Drawing.Point(662, 206);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(219, 56);
@@ -252,22 +273,24 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(116, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(59, 48);
             this.button2.TabIndex = 23;
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_AnhDaiDien
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.Location = new System.Drawing.Point(41, 3);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(62, 48);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_AnhDaiDien.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_AnhDaiDien.Image = ((System.Drawing.Image)(resources.GetObject("btn_AnhDaiDien.Image")));
+            this.btn_AnhDaiDien.Location = new System.Drawing.Point(41, 3);
+            this.btn_AnhDaiDien.Name = "btn_AnhDaiDien";
+            this.btn_AnhDaiDien.Padding = new System.Windows.Forms.Padding(5);
+            this.btn_AnhDaiDien.Size = new System.Drawing.Size(55, 48);
+            this.btn_AnhDaiDien.TabIndex = 0;
+            this.btn_AnhDaiDien.UseVisualStyleBackColor = false;
+            this.btn_AnhDaiDien.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbb_NhomQuyen
             // 
@@ -556,7 +579,6 @@
             this.HoTen,
             this.SDT,
             this.DiaChi,
-            this.HocVan,
             this.Email,
             this.Tuoi,
             this.ChucVu});
@@ -601,13 +623,6 @@
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.Width = 200;
             // 
-            // HocVan
-            // 
-            this.HocVan.HeaderText = "Học vấn";
-            this.HocVan.MinimumWidth = 6;
-            this.HocVan.Name = "HocVan";
-            this.HocVan.Width = 125;
-            // 
             // Email
             // 
             this.Email.FillWeight = 87.91444F;
@@ -631,25 +646,14 @@
             this.ChucVu.Name = "ChucVu";
             this.ChucVu.Width = 125;
             // 
-            // txt_SoLuongNV
+            // toolStripBtn_PrintNV
             // 
-            this.txt_SoLuongNV.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txt_SoLuongNV.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.txt_SoLuongNV.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txt_SoLuongNV.BorderRadius = 5;
-            this.txt_SoLuongNV.BorderSize = 1;
-            this.txt_SoLuongNV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_SoLuongNV.Location = new System.Drawing.Point(4, 597);
-            this.txt_SoLuongNV.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_SoLuongNV.Multiline = false;
-            this.txt_SoLuongNV.Name = "txt_SoLuongNV";
-            this.txt_SoLuongNV.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txt_SoLuongNV.PasswordChar = false;
-            this.txt_SoLuongNV.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txt_SoLuongNV.PlaceholderText = "";
-            this.txt_SoLuongNV.Size = new System.Drawing.Size(48, 38);
-            this.txt_SoLuongNV.TabIndex = 92;
-            this.txt_SoLuongNV.UnderlinedStyle = false;
+            this.toolStripBtn_PrintNV.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtn_PrintNV.Image")));
+            this.toolStripBtn_PrintNV.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtn_PrintNV.Name = "toolStripBtn_PrintNV";
+            this.toolStripBtn_PrintNV.Size = new System.Drawing.Size(67, 47);
+            this.toolStripBtn_PrintNV.Text = " Print";
+            this.toolStripBtn_PrintNV.Click += new System.EventHandler(this.toolStripBtn_PrintNV_Click);
             // 
             // FrmNhanVien
             // 
@@ -695,7 +699,7 @@
         private Label label2;
         private Panel panel5;
         private Button button2;
-        private Button button1;
+        private Button btn_AnhDaiDien;
         private ComboBox cbb_NhomQuyen;
         private Controls.TextBox_NTT txt_HocVan;
         private Label label1;
@@ -715,14 +719,14 @@
         private Label label5;
         private Controls.TextBox_NTT txt_MaNV;
         private Label label4;
+        private Controls.TextBox_NTT txt_SoLuongNV;
         private DataGridViewTextBoxColumn MaNV;
         private DataGridViewTextBoxColumn HoTen;
         private DataGridViewTextBoxColumn SDT;
         private DataGridViewTextBoxColumn DiaChi;
-        private DataGridViewTextBoxColumn HocVan;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Tuoi;
         private DataGridViewTextBoxColumn ChucVu;
-        private Controls.TextBox_NTT txt_SoLuongNV;
+        private ToolStripButton toolStripBtn_PrintNV;
     }
 }

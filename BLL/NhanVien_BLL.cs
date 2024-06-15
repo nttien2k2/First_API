@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class NhanVienBLL
+    public class NhanVien_BLL
     {
         NhanVien_DAL nv_dal = new NhanVien_DAL();
+        Export_DAL export_dal = new Export_DAL();
         public DataTable getNhanVien()
         {
             return nv_dal.getNhanVien();
@@ -36,5 +37,10 @@ namespace BLL
         {
             return nv_dal.countNhanVien();
         }
+        public int countNhanVienBySearch(string search)
+        {
+            return nv_dal.countNhanVienBySearch(search);
+        }
+        
     }
 }

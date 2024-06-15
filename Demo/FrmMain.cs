@@ -5,6 +5,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MaterialSkin.Controls;
 using MaterialSkin;
 using DAL;
+using GUI;
 
 namespace Demo
 {
@@ -56,7 +57,6 @@ namespace Demo
             //đăngXuấtToolStripMenuItem.Enabled = daDangNhap;
 
         }
-
         public void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLogin f = new FrmLogin();
@@ -179,8 +179,7 @@ namespace Demo
 
         private void btn_PhongBan_Click(object sender, EventArgs e)
         {
-            FrmPhongBan f = new FrmPhongBan();
-            f.Show();
+            Form_load(new FrmPhongBan());
         }
 
         private void Form_load(object form)
@@ -193,6 +192,22 @@ namespace Demo
             this.pn_Main.Controls.Add(f);
             this.pn_Main.Tag = f;
             f.Show();
+        }
+
+        private void btn_ChuyenKhoa_Click(object sender, EventArgs e)
+        {
+            Form_load(new FrmChuyenKhoa());
+        }
+
+        private void btn_CaiDat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_BenhAn_Click(object sender, EventArgs e)
+        {
+            Form_load(new FrmBenhAn());
+
         }
     }
 }
