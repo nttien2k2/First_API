@@ -16,6 +16,10 @@ namespace BLL
         {
             return pb_dal.getPhongBan();
         }
+        public DataTable loadCbb_PhongBan()
+        {
+            return pb_dal.loadcbo_PhongBan();
+        }
         public bool insertPhongBan(PhongBan_DTO pb)
         {
             return pb_dal.insertPhongBan(pb);

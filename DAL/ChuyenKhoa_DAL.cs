@@ -24,7 +24,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "INSERT INTO ChuyenKhoa (TenChuyenKhoa, VietTat) " +
                                "VALUES (@TenChuyenKhoa, @VietTat)";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
@@ -46,7 +46,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "UPDATE ChuyenKhoa " +
                                "SET TenChuyenKhoa = @TenChuyenKhoa, " +
                                    "VietTat = @VietTat " +
@@ -72,7 +72,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "DELETE FROM ChuyenKhoa WHERE MaChuyenKhoa = @MaChuyenKhoa";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
 

@@ -17,6 +17,11 @@ namespace BLL
         {
             return nv_dal.getNhanVien();
         }
+        public DataTable loadCbb_ChucDanh()
+        {
+            return nv_dal.loadcbo_ChucDanh();
+        }
+
         public bool insertNhanVien(NhanVien_DTO nv)
         {
             return nv_dal.insertNhanVien(nv);
@@ -25,9 +30,9 @@ namespace BLL
         {
             return nv_dal.updateNhanVien(nv);
         }
-        public bool deleteNhanVien(int maNV)
+        public bool deleteNhanVien(string sdt)
         {
-            return nv_dal.deleteNhanVien(maNV);
+            return nv_dal.deleteNhanVien(sdt);
         }
         public DataTable search(string search)
         {
@@ -41,6 +46,22 @@ namespace BLL
         {
             return nv_dal.countNhanVienBySearch(search);
         }
-        
+        public string getNhanVienBySDT(string sdt)
+        {
+            return nv_dal.getNhanVienBySDT(sdt);
+        }
+        public bool xoaTaiKhoanNhanVien(string sdt)
+        {
+            return nv_dal.XoaTaiKhoanNhanVien(sdt);
+
+        }
+        public bool insertNhomQuyen(string roleName)
+        {
+            return nv_dal.insertNhomQuyen(roleName);
+        }
+        public bool deleteNhomQuyen(string roleName)
+        {
+            return nv_dal.deleteNhomQuyen(roleName);
+        }
     }
 }

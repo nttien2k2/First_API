@@ -68,26 +68,54 @@ namespace DAL
             StrDataBaseName = "QL_KHAMBENH";
             StrUserName = "sa";
             StrPassWord = "123";
+            //StrUserName = UserName;
+            //StrPassWord = PassWord;
             StrConnect = @"Data Source=" + StrSeverName + ";Initial Catalog=" + StrDataBaseName + ";user ID=" + StrUserName + "; password = " + StrPassWord;
             Connect = new SqlConnection(StrConnect);
             DSet = new DataSet(StrDataBaseName);
-        }
-        public DbContext(string UserName, string PassWord)
-        {
-            StrUserName = UserName;
-            StrPassWord = PassWord;
-
+            connect.Open();
         }
 
         public void OpenConnect()
         {
             strUserName = "sa";
             strPassWord = "123";
+            //strUserName = UserName;
+            //strPassWord = PassWord;
             strConnect = @"Data Source= LAPTOP-FRMKN0GD\TIEN " + ";Initial Catalog= QL_KHAMBENH " + ";user ID=" + strUserName + "; password =" + strPassWord;
             Connect = new SqlConnection(StrConnect);
             if (Connect.State == ConnectionState.Closed)
                 Connect.Open();
         }
+        //public DbContext()
+        //{
+        //    StrSeverName = @"LAPTOP-FRMKN0GD\TIEN";
+        //    StrDataBaseName = "QL_KHAMBENH";
+        //}
+
+        //public void OpenConnectAsSA()
+        //{
+        //    StrUserName = "sa";
+        //    StrPassWord = "123"; // Thay thế bằng mật khẩu của bạn
+        //    StrConnect = @"Data Source=" + StrSeverName + ";Initial Catalog=" + StrDataBaseName + ";user ID=" + StrUserName + "; password = " + StrPassWord;
+        //    Connect = new SqlConnection(StrConnect);
+        //    if (Connect.State == ConnectionState.Closed)
+        //    {
+        //        Connect.Open();
+        //    }
+        //}
+
+        //public void OpenConnect(string UserName, string PassWord)
+        //{
+        //    StrUserName = UserName;
+        //    StrPassWord = PassWord;
+        //    StrConnect = @"Data Source=" + StrSeverName + ";Initial Catalog=" + StrDataBaseName + ";user ID=" + StrUserName + "; password = " + StrPassWord;
+        //    Connect = new SqlConnection(StrConnect);
+        //    if (Connect.State == ConnectionState.Closed)
+        //    {
+        //        Connect.Open();
+        //    }
+        //}
 
         public void CloseConnect()
         {
@@ -96,34 +124,34 @@ namespace DAL
         }
         public void InsertToDatabase(string query, params object[] parameters)
         {
-            try
-            {
-                OpenConnect();
-                using (SqlCommand cmd = new SqlCommand(query, Connect))
-                {
-                    for (int i = 0; i < parameters.Length; i++)
-                    {
-                        cmd.Parameters.AddWithValue($"@param{i}", parameters[i]);
-                    }
-                    cmd.ExecuteNonQuery();
-                }
-                CloseConnect();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi thêm: " + ex.Message);
-            }
+            //try
+            //{
+            //    OpenConnect();
+            //    using (SqlCommand cmd = new SqlCommand(query, Connect))
+            //    {
+            //        for (int i = 0; i < parameters.Length; i++)
+            //        {
+            //            cmd.Parameters.AddWithValue($"@param{i}", parameters[i]);
+            //        }
+            //        cmd.ExecuteNonQuery();
+            //    }
+            //    CloseConnect();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Lỗi thêm: " + ex.Message);
+            //}
         }
         public void UpdateToDatabase(string query)
         {
-            OpenConnect();
-            SqlCommand cmd = new SqlCommand(query, Connect);
-            cmd.ExecuteNonQuery();
-            CloseConnect();
+            //OpenConnect();
+            //SqlCommand cmd = new SqlCommand(query, Connect);
+            //cmd.ExecuteNonQuery();
+            //CloseConnect();
         }
         public int GetCount(string query, SqlParameter[] parameters)
         {
-            OpenConnect();
+            //OpenConnect();
             SqlCommand cmd = new SqlCommand(query, Connect);
             cmd.Parameters.AddRange(parameters);
             int count = (int)cmd.ExecuteScalar();
@@ -131,15 +159,16 @@ namespace DAL
             return count;
         }
 
-        public SqlDataReader GetData(string query)
-        {
-            OpenConnect();
-            SqlCommand cmd = new SqlCommand(query, Connect);
-            SqlDataReader rd = cmd.ExecuteReader();
-            return rd;
-        }
+        //public SqlDataReader GetData(string query)
+        //{
+        //    //OpenConnect();
+        //    //SqlCommand cmd = new SqlCommand(query, Connect);
+        //    //SqlDataReader rd = cmd.ExecuteReader();
+        //    //return rd;
+        //}
         public SqlDataAdapter getDataAdapter(string query, string tableName)
         {
+            //OpenConnectAsSA();
             OpenConnect();
             SqlDataAdapter ada = new SqlDataAdapter(query, Connect);
             ada.Fill(DSet, tableName);
@@ -160,25 +189,38 @@ namespace DAL
         }
         public bool check_TaiKhoan(string tk, string mk)
         {
-            string query = "SELECT COUNT(*) FROM NhanVien WHERE SDT = @tk AND MatKhau = @mk";
-            SqlParameter[] parameters = {
-                new SqlParameter("@tk", tk),
-                new SqlParameter("@mk", mk)};
-            if (GetCount(query, parameters) > 0)
-                return true;
-
-            return false;
+            try
+            {
+                //OpenConnectAsSA();
+                OpenConnect();
+                string query = "SELECT COUNT(*) FROM NhanVien WHERE SDT = @SDT AND MatKhau = @MatKhau";
+                SqlCommand cmd = new SqlCommand(query, Connect);
+                cmd.Parameters.AddWithValue("@SDT", tk);
+                cmd.Parameters.AddWithValue("@MatKhau", mk);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return false;
+            }
+            finally
+            {
+                CloseConnect();
+            }
         }
         public string GetChucVu(string tk)
         {
-            OpenConnect();
-            string query = "SELECT CHUCVU FROM NhanVien WHERE SDT = @tk";
+            //OpenConnect();
+            string query = "SELECT CHUCDANH FROM NhanVien WHERE SDT = @tk";
             SqlCommand cmd = new SqlCommand(query, Connect);
             cmd.Parameters.Add(new SqlParameter("@tk", tk));
             string chucvu = (string)cmd.ExecuteScalar();
             CloseConnect();
             return chucvu;
         }
+
 
     }
 }

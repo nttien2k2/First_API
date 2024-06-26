@@ -29,47 +29,51 @@ namespace Demo
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            
             string tk = txt_TaiKhoan.Text;
             string mk = txt_MatKhau.Text;
+
             if (string.IsNullOrEmpty(tk) || string.IsNullOrEmpty(mk))
             {
                 MessageBox.Show("Tài khoản và mật khẩu không được rỗng");
                 return;
             }
-            if (conn.check_TaiKhoan(tk, mk) == false)
+
+            if (!conn.check_TaiKhoan(tk, mk))
             {
                 MessageBox.Show("Tài khoản chưa được đăng ký");
                 return;
             }
-            if(conn.check_Quyen(tk) == 1)
-            {
-                conn.StrUserName = "admin";
-                conn.StrPassWord = "123";
-            }else if(conn.check_Quyen(tk) == 2)
-            {
-                conn.StrUserName = "BacSi";
-                conn.StrPassWord = "123";
-            }
-            else
-            {
-                conn.StrUserName = "Duoc";
-                conn.StrPassWord = "123";
-            }
+            //conn.StrUserName = txt_TaiKhoan.Text;
+            //conn.StrPassWord = txt_MatKhau.Text;
+            //switch (conn.check_Quyen(tk))
+            //{
+            //    case 1:
+            //        conn.StrUserName = "admin";
+            //        conn.StrPassWord = "123";
+            //        break;
+            //    case 2:
+            //        conn.StrUserName = "BacSi";
+            //        conn.StrPassWord = "123";
+            //        break;
+            //    default:
+            //        conn.StrUserName = "Duoc";
+            //        conn.StrPassWord = "123";
+            //        break;
+            //}
+
             try
             {
+                //conn.OpenConnect(tk,mk);
                 conn.OpenConnect();
                 MessageBox.Show("Đăng nhập thành công");
-                FrmMain fm = new FrmMain();
+
+                FrmMain fm = new FrmMain(tk); 
                 fm.Show();
                 this.Hide();
-
             }
             catch (Exception ex)
             {
-                // Đóng kết nối
                 conn.CloseConnect();
-                // Hiển thị thông báo lỗi
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi");
             }
         }
