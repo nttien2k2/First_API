@@ -44,8 +44,8 @@ namespace Demo
             }
             else
             {
-                string sql = "backup database [First_API] to disk= '" + txtDuongDan.Text + "\\ First_API - " + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak'";
-                conn.OpenConnect();
+                string sql = "backup database [QL_KhamBenh] to disk= '" + txtDuongDan.Text + "\\ QL_KhamBenh - " + DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".bak'";
+                //conn.OpenConnect();
                 SqlCommand cmd = new SqlCommand(sql, conn.Connect);
                 cmd.ExecuteNonQuery();
                 conn.CloseConnect();
@@ -158,6 +158,11 @@ namespace Demo
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void toolStripBtn_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

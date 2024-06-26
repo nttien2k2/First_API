@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace Demo
         DbContext conn = new DbContext();
         NhanVien_BLL nhanVienBLL = new NhanVien_BLL();
         Export_BLL export_bll = new Export_BLL();
+        PhongBan_BLL phongBanBLL = new PhongBan_BLL();
+
         public FrmNhanVien()
         {
             InitializeComponent();
@@ -25,8 +28,13 @@ namespace Demo
 
         private void FrmNhanVien_Load(object sender, EventArgs e)
         {
-            loadcbo_NhomQuyen();
             Load_NhanVien();
+            cbb_ChucDanh.DataSource = nhanVienBLL.loadCbb_ChucDanh();
+            cbb_ChucDanh.DisplayMember = "TenQuyen";
+            cbb_ChucDanh.ValueMember = "TenQuyen";
+            cbb_PhongBan.DataSource = phongBanBLL.loadCbb_PhongBan();
+            cbb_PhongBan.DisplayMember = "TenPhongBan";
+            cbb_PhongBan.ValueMember = "MaPhongBan";
         }
         private void Load_NhanVien()
         {
@@ -35,26 +43,23 @@ namespace Demo
             for (int i = 0; i < nhanVienList.Rows.Count; i++)
             {
                 DataRow row = nhanVienList.Rows[i];
+                DateTime ngaySinh = Convert.ToDateTime(row["NgaySinh"]);
+                string fmngaySinh = ngaySinh.ToString("dd/MM/yyyy");
                 dtgv_NhanVien.Rows.Add(
                     row["MaNV"],
                     row["HoTen"],
                     row["SDT"],
+                    row["CCCD"],
+                    row["HocVan"],
+                    row["TenPhongBan"],
+                    row["ChucDanh"],
+                    //row["TenQuyen"],
                     row["DiaChi"],
-                    //row["HocVan"],
                     row["Email"],
                     row["Tuoi"],
-                    row["ChucVu"]
+                    fmngaySinh
                 );
             }
-        }
-        public void loadcbo_NhomQuyen()
-        {
-            string query = "SELECT name FROM sys.database_principals WHERE type = 'R' AND is_fixed_role = 0 AND name <> 'public'";
-            string tableName = "sys.database_principals";
-            conn.getDataAdapter(query, tableName);
-            cbb_NhomQuyen.DataSource = conn.DSet.Tables[tableName];
-            cbb_NhomQuyen.DisplayMember = "name";
-            cbb_NhomQuyen.ValueMember = "name";
         }
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
@@ -77,9 +82,11 @@ namespace Demo
                         txt_DiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                         txt_Email.Text = row.Cells["Email"].Value.ToString();
                         txt_Tuoi.Text = row.Cells["Tuoi"].Value.ToString();
-                        //txt_HocVan.Text = row.Cells["HocVan"].Value.ToString();
-                        cbb_NhomQuyen.Text = row.Cells["ChucVu"].Value.ToString();
-
+                        txt_NgaySinh.Text = row.Cells["NgaySinh"].Value.ToString();
+                        txt_HocVan.Text = row.Cells["HocVan"].Value.ToString();
+                        txt_CCCD.Text = row.Cells["CCCD"].Value.ToString();
+                        cbb_ChucDanh.Text = row.Cells["ChucDanh"].Value.ToString();
+                        cbb_PhongBan.Text = row.Cells["PhongBan"].Value.ToString();
                     }
                 }
             }
@@ -91,11 +98,15 @@ namespace Demo
             NhanVien_DTO nv = new NhanVien_DTO();
             nv.HoTen = txt_HoTen.Text;
             nv.SDT = txt_SDT.Text;
+            nv.CCCD = txt_CCCD.Text;
             nv.Tuoi = int.Parse(txt_Tuoi.Text);
             nv.Email = txt_Email.Text;
             nv.DiaChi = txt_DiaChi.Text;
             nv.HocVan = txt_HocVan.Text;
-            //nv.ChucVu = cbb_NhomQuyen.SelectedValue.ToString();
+            nv.NgaySinh = DateTime.ParseExact(txt_NgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            nv.ChucDanh = cbb_ChucDanh.SelectedValue.ToString();
+            nv.MaPhongBan = int.Parse(cbb_PhongBan.SelectedValue.ToString());
+
 
             if (nhanVienBLL.insertNhanVien(nv))
             {
@@ -119,11 +130,14 @@ namespace Demo
             nv.MaNV = int.Parse(txt_MaNV.Text);
             nv.HoTen = txt_HoTen.Text;
             nv.SDT = txt_SDT.Text;
+            nv.CCCD = txt_CCCD.Text;
             nv.Tuoi = int.Parse(txt_Tuoi.Text);
             nv.Email = txt_Email.Text;
             nv.DiaChi = txt_DiaChi.Text;
             nv.HocVan = txt_HocVan.Text;
-            nv.ChucVu = cbb_NhomQuyen.SelectedValue.ToString();
+            nv.NgaySinh = DateTime.ParseExact(txt_NgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture); 
+            nv.ChucDanh = cbb_ChucDanh.SelectedValue.ToString();
+            nv.MaPhongBan = int.Parse(cbb_PhongBan.SelectedValue.ToString());
 
             if (nhanVienBLL.updateNhanVien(nv))
             {
@@ -142,10 +156,10 @@ namespace Demo
                 MessageBox.Show("Vui lòng chọn nhân viên cần xóa!!");
                 return;
             }
-            int maNV = int.Parse(txt_MaNV.Text);
-            if (nhanVienBLL.deleteNhanVien(maNV))
+            string sdt = txt_SDT.Text;
+            if (nhanVienBLL.deleteNhanVien(sdt))
             {
-                MessageBox.Show("Xóa nhân viên có Mã : " + txt_MaNV.Text + " thành công");
+                MessageBox.Show("Xóa nhân viên có Tên : " + txt_HoTen.Text + " thành công");
                 RefreshNhanVien();
             }
             else
@@ -163,6 +177,9 @@ namespace Demo
             txt_SDT.Clear();
             txt_Tuoi.Clear();
             txt_Email.Clear();
+            txt_SoLuongNV.Clear();
+            txt_Search.Clear();
+            txt_NgaySinh.Clear();
             Load_NhanVien();
         }
         private void toolStripbtn_Refresh_Click(object sender, EventArgs e)
@@ -208,11 +225,16 @@ namespace Demo
                         row["MaNV"],
                         row["HoTen"],
                         row["SDT"],
+                        row["CCCD"],
+                        row["HocVan"],
+                        row["TenPhongBan"],
+                        row["ChucDanh"],
+                        //row["TenQuyen"],
                         row["DiaChi"],
-                        //row["HocVan"],
                         row["Email"],
                         row["Tuoi"],
-                        row["ChucVu"]
+                        row["NgaySinh"]
+
                     );
                 }
             }

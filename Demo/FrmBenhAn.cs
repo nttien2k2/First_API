@@ -8,17 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using GUI;
 
 namespace Demo
 {
     public partial class FrmBenhAn : Form
     {
         BenhNhan_BLL bn_bll = new BenhNhan_BLL();
+        HoSoBenhAn_BLL hsba_bll = new HoSoBenhAn_BLL();  
         public FrmBenhAn()
         {
             InitializeComponent();
         }
-
         private void dtgv_BenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dtgv_BenhNhan.Rows.Count)
@@ -42,11 +43,42 @@ namespace Demo
                     }
                 }
             }
+            
+            if(hsba_bll.getHoSoBenhAn(int.Parse(txt_MaBN.Text)).Rows.Count == 0)
+            {
+                MessageBox.Show("Bệnh nhân "+ txt_HoTen + " chưa có hồ sơ bệnh án." ,"Thông báo");
+            }
+            else
+            {
+                load_HoSoBenhAn();
+            }
         }
-
         private void btn_Search_Click(object sender, EventArgs e)
         {
-
+            if (txt_Search.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập SDT của bệnh nhân muốn tìm kiếm!!!", "Thông báo");
+            }
+            else
+            {
+                string search = txt_Search.Text;
+                var benhNhanList = bn_bll.search(search);
+                dtgv_BenhNhan.Rows.Clear();
+                for (int i = 0; i < benhNhanList.Rows.Count; i++)
+                {
+                    DataRow row = benhNhanList.Rows[i];
+                    dtgv_BenhNhan.Rows.Add(
+                        row["SDT"],
+                        row["HoTenBN"],
+                        row["MaBN"],
+                        row["DiaChi"],
+                        row["GioiTinh"],
+                        row["Tuoi"],
+                        row["CMND_CCCD"],
+                        row["DanToc"]
+                    );
+                }
+            }
         }
         public void load_BenhNhan()
         {
@@ -67,130 +99,66 @@ namespace Demo
                 );
             }
         }
-
+        public void load_HoSoBenhAn()
+        {
+            int MaBn = int.Parse(txt_MaBN.Text);
+            var hoSoBenhAnList = hsba_bll.getHoSoBenhAn(MaBn);
+            dtgv_HoSoBenhAn.Rows.Clear();
+            for (int i = 0; i < hoSoBenhAnList.Rows.Count; i++)
+            {
+                DataRow row = hoSoBenhAnList.Rows[i];
+                DateTime ngayKham = Convert.ToDateTime(row["NgayKham"]);
+                string formattedNgayKham = ngayKham.ToString("dd/MM/yyyy");
+                dtgv_HoSoBenhAn.Rows.Add(
+                    row["LyDoKham"],
+                    formattedNgayKham,
+                    row["ChanDoanBanDau"],
+                    row["DieuTri"], 
+                    row["GhiChu"],
+                    row["KetQuaKham"]
+                );
+            }
+        }
         private void FrmBenhAn_Load(object sender, EventArgs e)
         {
-            load_BenhNhan();
+            txt_NgayKham.Enabled = false;
+            txt_LyDoKham.Enabled = false;
+            txt_KetQuaKham.Enabled = false;
+            txt_ChanDoan.Enabled = false;
+            txt_DieuTri.Enabled = false;
+            txt_GhiChu.Enabled = false;
+        }
+        private void dtgv_HoSoBenhAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_HoSoBenhAn.Rows.Count)
+            {
+                DataGridViewRow row = dtgv_HoSoBenhAn.Rows[e.RowIndex];
+
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    // Kiểm tra xem cột có dữ liệu hay không
+                    if (cell.Value != null)
+                    {
+                        txt_NgayKham.Text = row.Cells["NgayKham"].Value.ToString();
+                        txt_ChanDoan.Text = row.Cells["ChanDoan"].Value.ToString();
+                        txt_DieuTri.Text = row.Cells["DieuTri"].Value.ToString();
+                        txt_GhiChu.Text = row.Cells["GhiChu"].Value.ToString();
+                        txt_LyDoKham.Text = row.Cells["LyDoKham"].Value.ToString();
+                        txt_KetQuaKham.Text = row.Cells["KetQuaKham"].Value.ToString();
+                    }
+                }
+            }
         }
 
-        private void txt_GioiTinh_Load(object sender, EventArgs e)
+        private void toolStripBtn_Luu_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void dtgv_BenhNhan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_ThemMoiHSBA_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txt_Search_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_DiaChi_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_DanToc_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pn_Right_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pn_Left_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_Tuoi_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_SDT_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_HoTen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_CCCD_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_MaBN_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            FrmThemHSBA fHSBA = new FrmThemHSBA();
+            fHSBA.Show();
+            this.Hide();
         }
     }
 }

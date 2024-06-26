@@ -75,7 +75,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(952, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(948, 50);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripBtn_Luu
@@ -138,22 +138,21 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(952, 820);
+            this.panel4.Size = new System.Drawing.Size(948, 820);
             this.panel4.TabIndex = 2;
             // 
             // pn_Right
             // 
             this.pn_Right.Controls.Add(this.dtgv_PhongBan);
-            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Right.Location = new System.Drawing.Point(320, 50);
             this.pn_Right.Name = "pn_Right";
-            this.pn_Right.Size = new System.Drawing.Size(632, 770);
+            this.pn_Right.Size = new System.Drawing.Size(628, 770);
             this.pn_Right.TabIndex = 3;
             // 
             // dtgv_PhongBan
             // 
             this.dtgv_PhongBan.BackgroundColor = System.Drawing.Color.White;
-            this.dtgv_PhongBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_PhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_PhongBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhongBan,
@@ -166,7 +165,7 @@
             this.dtgv_PhongBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtgv_PhongBan.RowHeadersWidth = 51;
             this.dtgv_PhongBan.RowTemplate.Height = 29;
-            this.dtgv_PhongBan.Size = new System.Drawing.Size(632, 770);
+            this.dtgv_PhongBan.Size = new System.Drawing.Size(628, 770);
             this.dtgv_PhongBan.TabIndex = 0;
             this.dtgv_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_PhongBan_CellClick);
             // 
@@ -397,7 +396,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 820);
+            this.ClientSize = new System.Drawing.Size(948, 820);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPhongBan";

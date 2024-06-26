@@ -96,7 +96,7 @@
             this.txt_MatKhau.MaxLength = 32767;
             this.txt_MatKhau.MouseState = MaterialSkin.MouseState.OUT;
             this.txt_MatKhau.Name = "txt_MatKhau";
-            this.txt_MatKhau.PasswordChar = '\0';
+            this.txt_MatKhau.PasswordChar = '*';
             this.txt_MatKhau.PrefixSuffixText = null;
             this.txt_MatKhau.PromptChar = '_';
             this.txt_MatKhau.ReadOnly = false;
@@ -180,7 +180,7 @@
             this.Controls.Add(this.txt_MatKhau);
             this.Controls.Add(this.txt_TaiKhoan);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "                            Medicine Pro";
             this.ResumeLayout(false);
             this.PerformLayout();
 

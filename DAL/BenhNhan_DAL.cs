@@ -20,12 +20,11 @@ namespace DAL
             da.Fill(dtPatients);
             return dtPatients;
         }
-
         public bool insertBenhNhan(BenhNhan_DTO benhnhan)
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "INSERT INTO BenhNhan (HoTen, SDT, DiaChi, Email, NgaySinh, AnhDaiDien, GioiTinh) " +
                                "VALUES (@HoTen, @SDT, @DiaChi, @Email, @NgaySinh, @AnhDaiDien, @GioiTinh)";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
@@ -54,7 +53,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "UPDATE BenhNhan SET " +
                                "HoTenBN = @HoTenBN, " +
                                "SDT = @SDT, " +
@@ -91,7 +90,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "DELETE FROM BenhNhan WHERE MaBN = @MaBN";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
 
@@ -108,5 +107,16 @@ namespace DAL
             }
             return false;
         }
+
+        public DataTable search(string search)
+        {
+            string query = "SELECT * FROM BENHNHAN WHERE SDT LIKE @SDT";
+            SqlDataAdapter da = new SqlDataAdapter(query, Connect);
+            da.SelectCommand.Parameters.AddWithValue("@SDT", "%" + search + "%");
+            DataTable dtBenhNhan = new DataTable();
+            da.Fill(dtBenhNhan);
+            return dtBenhNhan;
+        }
+
     }
 }

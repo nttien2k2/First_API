@@ -21,11 +21,20 @@ namespace DAL
             da.Fill(dtPhongBan);
             return dtPhongBan;
         }
+        public DataTable loadcbo_PhongBan()
+        {
+            string query = "SELECT * FROM PhongBan";
+            SqlDataAdapter da = new SqlDataAdapter(query, Connect);
+            DataTable dtPhongBan = new DataTable();
+            da.Fill(dtPhongBan);
+            return dtPhongBan;
+
+        }
         public bool insertPhongBan(PhongBan_DTO phongBan)
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "INSERT INTO PhongBan (TenPhongBan, VietTat, TrangThai) " +
                                "VALUES (@TenPhongBan, @VietTat, @TrangThai)";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
@@ -50,7 +59,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "UPDATE PhongBan " +
                                "SET TenPhongBan = @TenPhongBan, " +
                                    "VietTat = @VietTat, " +
@@ -78,7 +87,7 @@ namespace DAL
         {
             try
             {
-                conn.OpenConnect();
+                //conn.OpenConnect();
                 string query = "DELETE FROM PhongBan WHERE MaPhongBan = @MaPhongBan";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect);
 

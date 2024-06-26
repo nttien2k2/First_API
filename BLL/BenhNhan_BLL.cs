@@ -28,5 +28,9 @@ namespace BLL
         {
             return bn_dal.deleteBenhNhan(maBN);
         }
+        public DataTable search(string search)
+        {
+            return bn_dal.search(search);
+        }
     }
 }

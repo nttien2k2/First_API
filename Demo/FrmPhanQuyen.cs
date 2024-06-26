@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
+using BLL;
 
 
 namespace Demo
 {
     public partial class FrmPhanQuyen : Form
     {
+        NhanVien_BLL nv_bll = new NhanVien_BLL();
         public FrmPhanQuyen()
         {
             InitializeComponent();
@@ -68,6 +70,7 @@ namespace Demo
         }
         public void loadcbo_NhomQuyen()
         {
+            //cbb_NhomQuyen.Items.Clear();
             string query = "SELECT name FROM sys.database_principals WHERE type = 'R' AND is_fixed_role = 0 AND name <> 'public'";
             string tableName = "sys.database_principals";
             conn.getDataAdapter(query, tableName);
@@ -133,7 +136,84 @@ namespace Demo
 
         private void btn_XoaTaiKhoan_Click(object sender, EventArgs e)
         {
+            if(cbb_TaiKhoan.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản để xóa!", "Lỗi");
+                return;
+            }    
+            string sdt = cbb_TaiKhoan.SelectedValue.ToString();
+            if(nv_bll.xoaTaiKhoanNhanVien(sdt))
+            {
+                MessageBox.Show("Xóa tài khoản thành công!!","Thông báo");
+            }
+            else
+            {
+                MessageBox.Show("Xóa tài khoản thất bại!!", "Thông báo");
 
+            }
+        }
+
+        private void toolStripBtn_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_ThemNhomQuyen_Click(object sender, EventArgs e)
+        {
+            if(txt_NhomQuyen.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên nhóm quyền muốn thêm!","Lỗi");
+                return;
+            }    
+            string roleName = txt_NhomQuyen.Text;
+            if(nv_bll.insertNhomQuyen(roleName))
+            {
+                MessageBox.Show("Thêm nhóm quyền thành công!!", "Thông báo");
+                Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Thêm nhóm quyền thất bại!!", "Thông báo");
+
+            }
+        }
+        public void Refresh()
+        {
+            txt_NhomQuyen.Clear();
+            loadcboNhanVien();
+            loadcbo_Bang();
+            loadcbo_Quyen();
+            loadcbo_TaiKhoan();
+        }
+
+        private void btn_XoaNhomQuyen_Click(object sender, EventArgs e)
+        {
+            if (cbb_NhomQuyen.SelectedIndex <= -1)
+            {
+                MessageBox.Show("Vui lòng nhập tên nhóm quyền muốn xóa!", "Lỗi");
+                return;
+            }
+            string roleName = cbb_NhomQuyen.SelectedValue.ToString();
+            if (nv_bll.deleteNhomQuyen(roleName))
+            {
+                MessageBox.Show("Xóa nhóm quyền thành công!!", "Thông báo");
+                Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Xóa nhóm quyền thất bại!!", "Thông báo");
+
+            }
+        }
+
+        private void toolStripBtn_Refresh_Click(object sender, EventArgs e)
+        {
+            Refresh();  
         }
     }
 }
