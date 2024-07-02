@@ -63,5 +63,9 @@ namespace BLL
         {
             return nv_dal.deleteNhomQuyen(roleName);
         }
+        public bool doiMatKhau(NhanVien_DTO nv)
+        {
+            return nv_dal.doiMatKhau(nv);
+        }
     }
 }

@@ -69,7 +69,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(932, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(1378, 50);
             this.toolStrip1.TabIndex = 9;
             // 
             // toolStripBtn_Luu
@@ -141,7 +141,7 @@
             this.pn_Left.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(337, 803);
+            this.pn_Left.Size = new System.Drawing.Size(500, 903);
             this.pn_Left.TabIndex = 10;
             // 
             // txt_MoTa
@@ -160,7 +160,7 @@
             this.txt_MoTa.PasswordChar = false;
             this.txt_MoTa.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_MoTa.PlaceholderText = "";
-            this.txt_MoTa.Size = new System.Drawing.Size(200, 199);
+            this.txt_MoTa.Size = new System.Drawing.Size(334, 199);
             this.txt_MoTa.TabIndex = 94;
             this.txt_MoTa.UnderlinedStyle = false;
             // 
@@ -191,7 +191,7 @@
             this.txt_MaLoaiThuoc.PasswordChar = false;
             this.txt_MaLoaiThuoc.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_MaLoaiThuoc.PlaceholderText = "";
-            this.txt_MaLoaiThuoc.Size = new System.Drawing.Size(200, 35);
+            this.txt_MaLoaiThuoc.Size = new System.Drawing.Size(334, 35);
             this.txt_MaLoaiThuoc.TabIndex = 8;
             this.txt_MaLoaiThuoc.UnderlinedStyle = false;
             // 
@@ -228,7 +228,7 @@
             this.txt_TenLoaiThuoc.PasswordChar = false;
             this.txt_TenLoaiThuoc.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_TenLoaiThuoc.PlaceholderText = "";
-            this.txt_TenLoaiThuoc.Size = new System.Drawing.Size(200, 35);
+            this.txt_TenLoaiThuoc.Size = new System.Drawing.Size(334, 35);
             this.txt_TenLoaiThuoc.TabIndex = 7;
             this.txt_TenLoaiThuoc.UnderlinedStyle = false;
             // 
@@ -255,7 +255,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(12, 56);
+            this.button1.Location = new System.Drawing.Point(63, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 2);
             this.button1.TabIndex = 2;
@@ -265,7 +265,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(76, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -276,7 +276,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(69, 21);
+            this.label1.Location = new System.Drawing.Point(120, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 25);
             this.label1.TabIndex = 0;
@@ -286,15 +286,14 @@
             // 
             this.pn_Right.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pn_Right.Controls.Add(this.dtgv_Thuoc);
-            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Right.Location = new System.Drawing.Point(339, 50);
+            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Right.Location = new System.Drawing.Point(500, 50);
             this.pn_Right.Name = "pn_Right";
-            this.pn_Right.Size = new System.Drawing.Size(593, 803);
+            this.pn_Right.Size = new System.Drawing.Size(878, 903);
             this.pn_Right.TabIndex = 11;
             // 
             // dtgv_Thuoc
             // 
-            this.dtgv_Thuoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_Thuoc.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_Thuoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Thuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -305,10 +304,11 @@
             this.dtgv_Thuoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgv_Thuoc.Location = new System.Drawing.Point(0, 0);
             this.dtgv_Thuoc.Name = "dtgv_Thuoc";
+            this.dtgv_Thuoc.ReadOnly = true;
             this.dtgv_Thuoc.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtgv_Thuoc.RowHeadersWidth = 51;
             this.dtgv_Thuoc.RowTemplate.Height = 29;
-            this.dtgv_Thuoc.Size = new System.Drawing.Size(591, 801);
+            this.dtgv_Thuoc.Size = new System.Drawing.Size(876, 901);
             this.dtgv_Thuoc.TabIndex = 0;
             this.dtgv_Thuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Thuoc_CellClick);
             // 
@@ -317,26 +317,32 @@
             this.MaLoaiThuoc.HeaderText = "Mã loại thuốc";
             this.MaLoaiThuoc.MinimumWidth = 6;
             this.MaLoaiThuoc.Name = "MaLoaiThuoc";
+            this.MaLoaiThuoc.ReadOnly = true;
+            this.MaLoaiThuoc.Width = 150;
             // 
             // TenLoaiThuoc
             // 
             this.TenLoaiThuoc.HeaderText = "Tên loại thuốc";
             this.TenLoaiThuoc.MinimumWidth = 6;
             this.TenLoaiThuoc.Name = "TenLoaiThuoc";
+            this.TenLoaiThuoc.ReadOnly = true;
+            this.TenLoaiThuoc.Width = 250;
             // 
             // MoTa
             // 
             this.MoTa.HeaderText = "Mô tả";
             this.MoTa.MinimumWidth = 6;
             this.MoTa.Name = "MoTa";
+            this.MoTa.ReadOnly = true;
+            this.MoTa.Width = 400;
             // 
             // FrmLoaiThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(932, 853);
-            this.Controls.Add(this.pn_Left);
+            this.ClientSize = new System.Drawing.Size(1378, 953);
             this.Controls.Add(this.pn_Right);
+            this.Controls.Add(this.pn_Left);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLoaiThuoc";

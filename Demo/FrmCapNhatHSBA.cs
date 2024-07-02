@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FrmThemHSBA : Form
+    public partial class FrmCapNhatHSBA : Form
     {
         HoSoBenhAn_BLL hsba_bll = new HoSoBenhAn_BLL();
-        public FrmThemHSBA()
+        public FrmCapNhatHSBA()
         {
             InitializeComponent();
         }

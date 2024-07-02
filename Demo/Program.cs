@@ -17,16 +17,16 @@ namespace Demo
             //Application.Run(new FrmMain(tk));
             //Application.Run(new FrmSaoLuuPhucHoi());
             //Application.Run(new FrmRegister());
-            //Application.Run(new FrmLogin());
+            Application.Run(new FrmLogin());
             //Application.Run(new FrmNhanVien());
-            //Application.Run(new FrmPhanQuyen());
+            //application.run(new frmphanquyen());
             //Application.Run(new FrmPhongBan());
             //Application.Run(new FrmChuyenKhoa());
             //Application.Run(new FrmLich());
             //Application.Run(new FrmNhapThuoc());
             //Application.Run(new FrmLoaiThuoc());
             //Application.Run(new FrmLoaiTBYT());
-            Application.Run(new FrmBenhAn());
+            //Application.Run(new FrmBenhAn());
 
         }
     }

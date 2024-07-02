@@ -147,6 +147,9 @@ namespace Demo
             RefreshPhongBan();
         }
 
+        private void pn_Left_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

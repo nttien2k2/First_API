@@ -32,13 +32,13 @@ namespace Demo
                     if (cell.Value != null)
                     {
                         txt_MaBN.Text = row.Cells["MaBN"].Value.ToString();
+                        txt_DiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                         txt_HoTen.Text = row.Cells["HoTenBN"].Value.ToString();
                         txt_SDT.Text = row.Cells["SDT"].Value.ToString();
-                        txt_DiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                         txt_GioiTinh.Text = row.Cells["GioiTinh"].Value.ToString();
-                        txt_Tuoi.Text = row.Cells["Tuoi"].Value.ToString();
-                        txt_CCCD.Text = row.Cells["CMND_CCCD"].Value.ToString();
                         txt_DanToc.Text = row.Cells["DanToc"].Value.ToString();
+                        txt_CCCD.Text = row.Cells["CMND_CCCD"].Value.ToString();
+                        txt_Tuoi.Text = row.Cells["Tuoi"].Value.ToString();
 
                     }
                 }
@@ -55,14 +55,20 @@ namespace Demo
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
+            string search = txt_Search.Text;
+            var benhNhanList = bn_bll.search(search);
             if (txt_Search.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập SDT của bệnh nhân muốn tìm kiếm!!!", "Thông báo");
+                return;
             }
+            if(benhNhanList.Rows.Count == 0)
+            {
+                MessageBox.Show("Bệnh nhân chưa có hồ sơ bệnh án, vui lòng lập hồ sơ bệnh án!", "Thông báo");
+                return;
+            }    
             else
             {
-                string search = txt_Search.Text;
-                var benhNhanList = bn_bll.search(search);
                 dtgv_BenhNhan.Rows.Clear();
                 for (int i = 0; i < benhNhanList.Rows.Count; i++)
                 {
@@ -70,12 +76,13 @@ namespace Demo
                     dtgv_BenhNhan.Rows.Add(
                         row["SDT"],
                         row["HoTenBN"],
-                        row["MaBN"],
-                        row["DiaChi"],
-                        row["GioiTinh"],
+                        row["MaBN"], 
                         row["Tuoi"],
-                        row["CMND_CCCD"],
-                        row["DanToc"]
+                        row["GioiTinh"],
+                        row["DanToc"],
+                        row["DiaChi"],
+                        row["CMND_CCCD"]
+                        
                     );
                 }
             }
@@ -156,9 +163,14 @@ namespace Demo
         }
         private void btn_ThemMoiHSBA_Click(object sender, EventArgs e)
         {
-            FrmThemHSBA fHSBA = new FrmThemHSBA();
+            FrmCapNhatHSBA fHSBA = new FrmCapNhatHSBA();
             fHSBA.Show();
             this.Hide();
+        }
+
+        private void toolStripBtn_Thoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

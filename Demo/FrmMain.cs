@@ -30,7 +30,8 @@ namespace Demo
         private void Form1_Load(object sender, EventArgs e)
         {
             //conn.OpenConnect();
-            CheckDangNhap();
+            //CheckDangNhap();
+            this.WindowState = FormWindowState.Maximized;   
             lb_Ten.Text = nv_bll.getNhanVienBySDT(sdt) ;
 
         }
@@ -203,7 +204,9 @@ namespace Demo
 
         private void btn_SaoLuuPhucHoi_Click(object sender, EventArgs e)
         {
-            Form_load(new FrmSaoLuuPhucHoi());
+            //Form_load(new FrmSaoLuuPhucHoi());
+            FrmSaoLuuPhucHoi f = new FrmSaoLuuPhucHoi();
+            f.Show();
         }
 
         private void btn_Thuoc_Click(object sender, EventArgs e)
@@ -219,7 +222,7 @@ namespace Demo
 
         private void btn_DichVu_Click(object sender, EventArgs e)
         {
-
+            Form_load(new FrmDichVu());
         }
 
         private void btn_Thuoc_Timer_Tick(object sender, EventArgs e)
@@ -300,6 +303,28 @@ namespace Demo
         private void btn_LoaiTBYT_Click(object sender, EventArgs e)
         {
             Form_load(new FrmLoaiTBYT());
+        }
+
+        private void btn_DangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                FrmLogin flg = new FrmLogin();
+                flg.Show();
+                this.Hide();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btn_DoiMatKhau_Click(object sender, EventArgs e)
+        {
+            FrmDoiMatKhau f = new FrmDoiMatKhau();
+            f.Show();
+            //this.Hide();
 
         }
     }

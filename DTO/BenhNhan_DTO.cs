@@ -21,6 +21,7 @@ namespace DTO
         public string NgheNghiep { get; set; }
         public string Email { get; set; }
         public string AnhDaiDien { get; set; }
-        public string Password { get; set; }
+        public string MatKhau { get; set; }
+        public int MaQuyen { get; set; }
     }
 }

@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 578);
+            this.ClientSize = new System.Drawing.Size(450, 500);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel1);
@@ -180,6 +180,7 @@
             this.Controls.Add(this.txt_MatKhau);
             this.Controls.Add(this.txt_TaiKhoan);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "                            Medicine Pro";
             this.ResumeLayout(false);
             this.PerformLayout();

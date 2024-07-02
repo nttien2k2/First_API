@@ -93,17 +93,17 @@ namespace DAL
         //    StrDataBaseName = "QL_KHAMBENH";
         //}
 
-        //public void OpenConnectAsSA()
-        //{
-        //    StrUserName = "sa";
-        //    StrPassWord = "123"; // Thay thế bằng mật khẩu của bạn
-        //    StrConnect = @"Data Source=" + StrSeverName + ";Initial Catalog=" + StrDataBaseName + ";user ID=" + StrUserName + "; password = " + StrPassWord;
-        //    Connect = new SqlConnection(StrConnect);
-        //    if (Connect.State == ConnectionState.Closed)
-        //    {
-        //        Connect.Open();
-        //    }
-        //}
+        public void OpenConnectAsSA()
+        {
+            StrUserName = "sa";
+            StrPassWord = "123";
+            StrConnect = @"Data Source=" + StrSeverName + ";Initial Catalog=" + StrDataBaseName + ";user ID=" + StrUserName + "; password = " + StrPassWord;
+            Connect = new SqlConnection(StrConnect);
+            if (Connect.State == ConnectionState.Closed)
+            {
+                Connect.Open();
+            }
+        }
 
         //public void OpenConnect(string UserName, string PassWord)
         //{

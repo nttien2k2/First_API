@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBenhAn));
             this.pn_Left = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KetQuaKham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pn_Right = new System.Windows.Forms.Panel();
+            this.btn_CapNhatHSBA = new System.Windows.Forms.Button();
             this.txt_KetQuaKham = new Demo.Controls.TextBox_NTT();
             this.label17 = new System.Windows.Forms.Label();
             this.txt_LyDoKham = new Demo.Controls.TextBox_NTT();
@@ -89,7 +91,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn_Refresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtn_Thoat = new System.Windows.Forms.ToolStripButton();
-            this.btn_ThemMoiHSBA = new System.Windows.Forms.Button();
             this.pn_Left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_BenhNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HoSoBenhAn)).BeginInit();
@@ -101,6 +102,7 @@
             // 
             this.pn_Left.BackColor = System.Drawing.SystemColors.Control;
             this.pn_Left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_Left.Controls.Add(this.button6);
             this.pn_Left.Controls.Add(this.button5);
             this.pn_Left.Controls.Add(this.button4);
             this.pn_Left.Controls.Add(this.button3);
@@ -113,12 +115,21 @@
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(320, 770);
+            this.pn_Left.Size = new System.Drawing.Size(403, 903);
             this.pn_Left.TabIndex = 0;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(12, 5);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(161, 37);
+            this.button6.TabIndex = 128;
+            this.button6.Text = "Thêm mới HSBA";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(4, 430);
+            this.button5.Location = new System.Drawing.Point(47, 453);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(312, 48);
             this.button5.TabIndex = 131;
@@ -127,7 +138,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(3, 377);
+            this.button4.Location = new System.Drawing.Point(46, 400);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(312, 48);
             this.button4.TabIndex = 130;
@@ -136,7 +147,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(3, 323);
+            this.button3.Location = new System.Drawing.Point(46, 346);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(312, 48);
             this.button3.TabIndex = 129;
@@ -145,7 +156,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 269);
+            this.button2.Location = new System.Drawing.Point(46, 292);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(312, 48);
             this.button2.TabIndex = 128;
@@ -154,7 +165,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 215);
+            this.button1.Location = new System.Drawing.Point(46, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(312, 48);
             this.button1.TabIndex = 127;
@@ -164,7 +175,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 26);
+            this.label18.Location = new System.Drawing.Point(54, 49);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(108, 20);
             this.label18.TabIndex = 3;
@@ -183,12 +194,13 @@
             this.DanToc,
             this.DiaChi,
             this.CMND_CCCD});
-            this.dtgv_BenhNhan.Location = new System.Drawing.Point(3, 92);
+            this.dtgv_BenhNhan.Location = new System.Drawing.Point(46, 115);
             this.dtgv_BenhNhan.Name = "dtgv_BenhNhan";
+            this.dtgv_BenhNhan.ReadOnly = true;
             this.dtgv_BenhNhan.RowHeadersWidth = 51;
             this.dtgv_BenhNhan.RowTemplate.Height = 29;
             this.dtgv_BenhNhan.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dtgv_BenhNhan.Size = new System.Drawing.Size(312, 90);
+            this.dtgv_BenhNhan.Size = new System.Drawing.Size(313, 90);
             this.dtgv_BenhNhan.TabIndex = 2;
             this.dtgv_BenhNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_BenhNhan_CellClick);
             // 
@@ -197,6 +209,7 @@
             this.SDT.HeaderText = "Số điện thoại";
             this.SDT.MinimumWidth = 6;
             this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
             this.SDT.Width = 125;
             // 
             // HoTenBN
@@ -204,6 +217,7 @@
             this.HoTenBN.HeaderText = "Tên";
             this.HoTenBN.MinimumWidth = 6;
             this.HoTenBN.Name = "HoTenBN";
+            this.HoTenBN.ReadOnly = true;
             this.HoTenBN.Width = 150;
             // 
             // MaBN
@@ -211,6 +225,7 @@
             this.MaBN.HeaderText = "Column1";
             this.MaBN.MinimumWidth = 6;
             this.MaBN.Name = "MaBN";
+            this.MaBN.ReadOnly = true;
             this.MaBN.Width = 125;
             // 
             // Tuoi
@@ -218,6 +233,7 @@
             this.Tuoi.HeaderText = "Column2";
             this.Tuoi.MinimumWidth = 6;
             this.Tuoi.Name = "Tuoi";
+            this.Tuoi.ReadOnly = true;
             this.Tuoi.Width = 125;
             // 
             // GioiTinh
@@ -225,6 +241,7 @@
             this.GioiTinh.HeaderText = "Column3";
             this.GioiTinh.MinimumWidth = 6;
             this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
             this.GioiTinh.Width = 125;
             // 
             // DanToc
@@ -232,6 +249,7 @@
             this.DanToc.HeaderText = "Column4";
             this.DanToc.MinimumWidth = 6;
             this.DanToc.Name = "DanToc";
+            this.DanToc.ReadOnly = true;
             this.DanToc.Width = 125;
             // 
             // DiaChi
@@ -239,6 +257,7 @@
             this.DiaChi.HeaderText = "Column5";
             this.DiaChi.MinimumWidth = 6;
             this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
             this.DiaChi.Width = 125;
             // 
             // CMND_CCCD
@@ -246,11 +265,12 @@
             this.CMND_CCCD.HeaderText = "Column6";
             this.CMND_CCCD.MinimumWidth = 6;
             this.CMND_CCCD.Name = "CMND_CCCD";
+            this.CMND_CCCD.ReadOnly = true;
             this.CMND_CCCD.Width = 125;
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(168, 50);
+            this.btn_Search.Location = new System.Drawing.Point(211, 73);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(100, 35);
             this.btn_Search.TabIndex = 1;
@@ -266,7 +286,7 @@
             this.txt_Search.BorderRadius = 5;
             this.txt_Search.BorderSize = 1;
             this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Search.Location = new System.Drawing.Point(4, 50);
+            this.txt_Search.Location = new System.Drawing.Point(47, 73);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Search.Multiline = true;
             this.txt_Search.Name = "txt_Search";
@@ -282,6 +302,7 @@
             // 
             this.dtgv_HoSoBenhAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgv_HoSoBenhAn.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtgv_HoSoBenhAn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_HoSoBenhAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_HoSoBenhAn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LyDoKham,
@@ -291,11 +312,12 @@
             this.GhiChu,
             this.KetQuaKham});
             this.dtgv_HoSoBenhAn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgv_HoSoBenhAn.Location = new System.Drawing.Point(0, 584);
+            this.dtgv_HoSoBenhAn.Location = new System.Drawing.Point(0, 563);
             this.dtgv_HoSoBenhAn.Name = "dtgv_HoSoBenhAn";
+            this.dtgv_HoSoBenhAn.ReadOnly = true;
             this.dtgv_HoSoBenhAn.RowHeadersWidth = 51;
             this.dtgv_HoSoBenhAn.RowTemplate.Height = 29;
-            this.dtgv_HoSoBenhAn.Size = new System.Drawing.Size(628, 184);
+            this.dtgv_HoSoBenhAn.Size = new System.Drawing.Size(975, 340);
             this.dtgv_HoSoBenhAn.TabIndex = 3;
             this.dtgv_HoSoBenhAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HoSoBenhAn_CellClick);
             // 
@@ -304,42 +326,47 @@
             this.LyDoKham.HeaderText = "Lý do khám";
             this.LyDoKham.MinimumWidth = 6;
             this.LyDoKham.Name = "LyDoKham";
+            this.LyDoKham.ReadOnly = true;
             // 
             // NgayKham
             // 
             this.NgayKham.HeaderText = "Ngày khám";
             this.NgayKham.MinimumWidth = 6;
             this.NgayKham.Name = "NgayKham";
+            this.NgayKham.ReadOnly = true;
             // 
             // ChanDoan
             // 
             this.ChanDoan.HeaderText = "Chẩn đoán";
             this.ChanDoan.MinimumWidth = 6;
             this.ChanDoan.Name = "ChanDoan";
+            this.ChanDoan.ReadOnly = true;
             // 
             // DieuTri
             // 
             this.DieuTri.HeaderText = "Điều trị";
             this.DieuTri.MinimumWidth = 6;
             this.DieuTri.Name = "DieuTri";
+            this.DieuTri.ReadOnly = true;
             // 
             // GhiChu
             // 
             this.GhiChu.HeaderText = "Ghi chú";
             this.GhiChu.MinimumWidth = 6;
             this.GhiChu.Name = "GhiChu";
+            this.GhiChu.ReadOnly = true;
             // 
             // KetQuaKham
             // 
             this.KetQuaKham.HeaderText = "Kết quả khám";
             this.KetQuaKham.MinimumWidth = 6;
             this.KetQuaKham.Name = "KetQuaKham";
+            this.KetQuaKham.ReadOnly = true;
             // 
             // pn_Right
             // 
             this.pn_Right.BackColor = System.Drawing.SystemColors.Control;
-            this.pn_Right.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pn_Right.Controls.Add(this.btn_ThemMoiHSBA);
+            this.pn_Right.Controls.Add(this.btn_CapNhatHSBA);
             this.pn_Right.Controls.Add(this.txt_KetQuaKham);
             this.pn_Right.Controls.Add(this.label17);
             this.pn_Right.Controls.Add(this.txt_LyDoKham);
@@ -372,11 +399,21 @@
             this.pn_Right.Controls.Add(this.label5);
             this.pn_Right.Controls.Add(this.txt_MaBN);
             this.pn_Right.Controls.Add(this.label4);
-            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Right.Location = new System.Drawing.Point(320, 50);
+            this.pn_Right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Right.Location = new System.Drawing.Point(403, 50);
             this.pn_Right.Name = "pn_Right";
-            this.pn_Right.Size = new System.Drawing.Size(630, 770);
+            this.pn_Right.Size = new System.Drawing.Size(975, 903);
             this.pn_Right.TabIndex = 1;
+            // 
+            // btn_CapNhatHSBA
+            // 
+            this.btn_CapNhatHSBA.Location = new System.Drawing.Point(451, 495);
+            this.btn_CapNhatHSBA.Name = "btn_CapNhatHSBA";
+            this.btn_CapNhatHSBA.Size = new System.Drawing.Size(161, 37);
+            this.btn_CapNhatHSBA.TabIndex = 127;
+            this.btn_CapNhatHSBA.Text = "Cập nhật HSBA";
+            this.btn_CapNhatHSBA.UseVisualStyleBackColor = true;
+            this.btn_CapNhatHSBA.Click += new System.EventHandler(this.btn_ThemMoiHSBA_Click);
             // 
             // txt_KetQuaKham
             // 
@@ -605,7 +642,7 @@
             this.txt_DanToc.BorderSize = 1;
             this.txt_DanToc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_DanToc.ForeColor = System.Drawing.Color.Black;
-            this.txt_DanToc.Location = new System.Drawing.Point(537, 78);
+            this.txt_DanToc.Location = new System.Drawing.Point(625, 76);
             this.txt_DanToc.Margin = new System.Windows.Forms.Padding(4);
             this.txt_DanToc.Multiline = false;
             this.txt_DanToc.Name = "txt_DanToc";
@@ -621,7 +658,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(455, 86);
+            this.label7.Location = new System.Drawing.Point(547, 84);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 23);
             this.label7.TabIndex = 110;
@@ -636,7 +673,7 @@
             this.txt_GioiTinh.BorderSize = 1;
             this.txt_GioiTinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_GioiTinh.ForeColor = System.Drawing.Color.Black;
-            this.txt_GioiTinh.Location = new System.Drawing.Point(537, 32);
+            this.txt_GioiTinh.Location = new System.Drawing.Point(441, 75);
             this.txt_GioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.txt_GioiTinh.Multiline = false;
             this.txt_GioiTinh.Name = "txt_GioiTinh";
@@ -644,7 +681,7 @@
             this.txt_GioiTinh.PasswordChar = false;
             this.txt_GioiTinh.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_GioiTinh.PlaceholderText = "";
-            this.txt_GioiTinh.Size = new System.Drawing.Size(75, 38);
+            this.txt_GioiTinh.Size = new System.Drawing.Size(90, 38);
             this.txt_GioiTinh.TabIndex = 109;
             this.txt_GioiTinh.UnderlinedStyle = false;
             // 
@@ -652,7 +689,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(455, 40);
+            this.label3.Location = new System.Drawing.Point(358, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 23);
             this.label3.TabIndex = 108;
@@ -675,7 +712,7 @@
             this.txt_DiaChi.PasswordChar = false;
             this.txt_DiaChi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_DiaChi.PlaceholderText = "";
-            this.txt_DiaChi.Size = new System.Drawing.Size(533, 38);
+            this.txt_DiaChi.Size = new System.Drawing.Size(621, 38);
             this.txt_DiaChi.TabIndex = 107;
             this.txt_DiaChi.UnderlinedStyle = false;
             // 
@@ -698,7 +735,7 @@
             this.txt_Tuoi.BorderSize = 1;
             this.txt_Tuoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_Tuoi.ForeColor = System.Drawing.Color.Black;
-            this.txt_Tuoi.Location = new System.Drawing.Point(404, 32);
+            this.txt_Tuoi.Location = new System.Drawing.Point(653, 32);
             this.txt_Tuoi.Margin = new System.Windows.Forms.Padding(4);
             this.txt_Tuoi.Multiline = false;
             this.txt_Tuoi.Name = "txt_Tuoi";
@@ -748,7 +785,7 @@
             this.txt_HoTen.PasswordChar = false;
             this.txt_HoTen.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_HoTen.PlaceholderText = "";
-            this.txt_HoTen.Size = new System.Drawing.Size(190, 38);
+            this.txt_HoTen.Size = new System.Drawing.Size(271, 38);
             this.txt_HoTen.TabIndex = 98;
             this.txt_HoTen.UnderlinedStyle = false;
             // 
@@ -761,7 +798,7 @@
             this.txt_CCCD.BorderSize = 1;
             this.txt_CCCD.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_CCCD.ForeColor = System.Drawing.Color.Black;
-            this.txt_CCCD.Location = new System.Drawing.Point(336, 76);
+            this.txt_CCCD.Location = new System.Drawing.Point(441, 31);
             this.txt_CCCD.Margin = new System.Windows.Forms.Padding(4);
             this.txt_CCCD.Multiline = false;
             this.txt_CCCD.Name = "txt_CCCD";
@@ -769,7 +806,7 @@
             this.txt_CCCD.PasswordChar = false;
             this.txt_CCCD.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_CCCD.PlaceholderText = "";
-            this.txt_CCCD.Size = new System.Drawing.Size(115, 38);
+            this.txt_CCCD.Size = new System.Drawing.Size(149, 38);
             this.txt_CCCD.TabIndex = 97;
             this.txt_CCCD.UnderlinedStyle = false;
             // 
@@ -777,7 +814,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(355, 40);
+            this.label6.Location = new System.Drawing.Point(604, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 23);
             this.label6.TabIndex = 96;
@@ -797,7 +834,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(274, 86);
+            this.label9.Location = new System.Drawing.Point(379, 41);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 23);
             this.label9.TabIndex = 93;
@@ -854,7 +891,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(950, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(1378, 50);
             this.toolStrip1.TabIndex = 127;
             // 
             // toolStripBtn_Refresh
@@ -880,22 +917,13 @@
             this.toolStripBtn_Thoat.Padding = new System.Windows.Forms.Padding(10);
             this.toolStripBtn_Thoat.Size = new System.Drawing.Size(103, 47);
             this.toolStripBtn_Thoat.Text = " Thoát";
-            // 
-            // btn_ThemMoiHSBA
-            // 
-            this.btn_ThemMoiHSBA.Location = new System.Drawing.Point(388, 529);
-            this.btn_ThemMoiHSBA.Name = "btn_ThemMoiHSBA";
-            this.btn_ThemMoiHSBA.Size = new System.Drawing.Size(161, 37);
-            this.btn_ThemMoiHSBA.TabIndex = 127;
-            this.btn_ThemMoiHSBA.Text = "Thêm HSBA";
-            this.btn_ThemMoiHSBA.UseVisualStyleBackColor = true;
-            this.btn_ThemMoiHSBA.Click += new System.EventHandler(this.btn_ThemMoiHSBA_Click);
+            this.toolStripBtn_Thoat.Click += new System.EventHandler(this.toolStripBtn_Thoat_Click);
             // 
             // FrmBenhAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 820);
+            this.ClientSize = new System.Drawing.Size(1378, 953);
             this.Controls.Add(this.pn_Right);
             this.Controls.Add(this.pn_Left);
             this.Controls.Add(this.toolStrip1);
@@ -978,6 +1006,7 @@
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripBtn_Refresh;
         private ToolStripButton toolStripBtn_Thoat;
-        private Button btn_ThemMoiHSBA;
+        private Button btn_CapNhatHSBA;
+        private Button button6;
     }
 }

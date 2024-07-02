@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhanVien));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripbtn_Them = new System.Windows.Forms.ToolStripButton();
             this.toolStripbtn_Luu = new System.Windows.Forms.ToolStripButton();
@@ -38,24 +40,12 @@
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.pn_Container = new System.Windows.Forms.Panel();
             this.pn_Main = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dtgv_NhanVien = new System.Windows.Forms.DataGridView();
-            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HocVan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_SoLuongNV = new Demo.Controls.TextBox_NTT();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txt_Search = new Demo.Controls.TextBox_NTT();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_NgaySinh = new Demo.Controls.TextBox_NTT();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -83,16 +73,32 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_MaNV = new Demo.Controls.TextBox_NTT();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtgv_NhanVien = new System.Windows.Forms.DataGridView();
+            this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCCD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HocVan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhongBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChucDanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.pn_Container.SuspendLayout();
             this.pn_Main.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_NhanVien)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_NhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -187,152 +193,64 @@
             this.pn_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Container.Location = new System.Drawing.Point(0, 50);
             this.pn_Container.Name = "pn_Container";
-            this.pn_Container.Size = new System.Drawing.Size(1122, 810);
+            this.pn_Container.Size = new System.Drawing.Size(1122, 903);
             this.pn_Container.TabIndex = 3;
             // 
             // pn_Main
             // 
             this.pn_Main.BackColor = System.Drawing.Color.White;
-            this.pn_Main.Controls.Add(this.groupBox3);
-            this.pn_Main.Controls.Add(this.groupBox2);
-            this.pn_Main.Controls.Add(this.groupBox1);
+            this.pn_Main.Controls.Add(this.panel2);
+            this.pn_Main.Controls.Add(this.panel1);
             this.pn_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Main.Location = new System.Drawing.Point(0, 0);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(1122, 810);
+            this.pn_Main.Size = new System.Drawing.Size(1122, 903);
             this.pn_Main.TabIndex = 0;
             // 
-            // groupBox3
+            // panel2
             // 
-            this.groupBox3.Controls.Add(this.dtgv_NhanVien);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(0, 578);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1122, 232);
-            this.groupBox3.TabIndex = 99;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách nhân viên";
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1122, 561);
+            this.panel2.TabIndex = 101;
             // 
-            // dtgv_NhanVien
+            // groupBox1
             // 
-            this.dtgv_NhanVien.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dtgv_NhanVien.ColumnHeadersHeight = 29;
-            this.dtgv_NhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaNV,
-            this.HoTen,
-            this.SDT,
-            this.CCCD,
-            this.HocVan,
-            this.PhongBan,
-            this.ChucDanh,
-            this.DiaChi,
-            this.Email,
-            this.Tuoi,
-            this.NgaySinh});
-            this.dtgv_NhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgv_NhanVien.Location = new System.Drawing.Point(3, 23);
-            this.dtgv_NhanVien.Name = "dtgv_NhanVien";
-            this.dtgv_NhanVien.ReadOnly = true;
-            this.dtgv_NhanVien.RowHeadersWidth = 51;
-            this.dtgv_NhanVien.RowTemplate.Height = 29;
-            this.dtgv_NhanVien.Size = new System.Drawing.Size(1116, 206);
-            this.dtgv_NhanVien.TabIndex = 101;
-            this.dtgv_NhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_NhanVien_CellClick);
-            // 
-            // MaNV
-            // 
-            this.MaNV.FillWeight = 160.4278F;
-            this.MaNV.HeaderText = "Mã";
-            this.MaNV.MinimumWidth = 6;
-            this.MaNV.Name = "MaNV";
-            this.MaNV.ReadOnly = true;
-            this.MaNV.Width = 50;
-            // 
-            // HoTen
-            // 
-            this.HoTen.FillWeight = 87.91444F;
-            this.HoTen.HeaderText = "Tên";
-            this.HoTen.MinimumWidth = 6;
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            this.HoTen.Width = 150;
-            // 
-            // SDT
-            // 
-            this.SDT.FillWeight = 87.91444F;
-            this.SDT.HeaderText = "SDT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            this.SDT.Width = 125;
-            // 
-            // CCCD
-            // 
-            this.CCCD.HeaderText = "CCCD";
-            this.CCCD.MinimumWidth = 6;
-            this.CCCD.Name = "CCCD";
-            this.CCCD.ReadOnly = true;
-            this.CCCD.Width = 125;
-            // 
-            // HocVan
-            // 
-            this.HocVan.HeaderText = "Học vấn";
-            this.HocVan.MinimumWidth = 6;
-            this.HocVan.Name = "HocVan";
-            this.HocVan.ReadOnly = true;
-            this.HocVan.Width = 125;
-            // 
-            // PhongBan
-            // 
-            this.PhongBan.HeaderText = "Phòng ban";
-            this.PhongBan.MinimumWidth = 6;
-            this.PhongBan.Name = "PhongBan";
-            this.PhongBan.ReadOnly = true;
-            this.PhongBan.Width = 125;
-            // 
-            // ChucDanh
-            // 
-            this.ChucDanh.HeaderText = "Chức danh";
-            this.ChucDanh.MinimumWidth = 6;
-            this.ChucDanh.Name = "ChucDanh";
-            this.ChucDanh.ReadOnly = true;
-            this.ChucDanh.Width = 125;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.FillWeight = 87.91444F;
-            this.DiaChi.HeaderText = "Địa chỉ";
-            this.DiaChi.MinimumWidth = 6;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 200;
-            // 
-            // Email
-            // 
-            this.Email.FillWeight = 87.91444F;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 120;
-            // 
-            // Tuoi
-            // 
-            this.Tuoi.FillWeight = 87.91444F;
-            this.Tuoi.HeaderText = "Tuổi";
-            this.Tuoi.MinimumWidth = 6;
-            this.Tuoi.Name = "Tuoi";
-            this.Tuoi.ReadOnly = true;
-            this.Tuoi.Width = 50;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.HeaderText = "Ngày sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 125;
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.txt_NgaySinh);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cbb_PhongBan);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.panel5);
+            this.groupBox1.Controls.Add(this.cbb_ChucDanh);
+            this.groupBox1.Controls.Add(this.txt_HocVan);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txt_DiaChi);
+            this.groupBox1.Controls.Add(this.txt_Email);
+            this.groupBox1.Controls.Add(this.txt_Tuoi);
+            this.groupBox1.Controls.Add(this.txt_SDT);
+            this.groupBox1.Controls.Add(this.txt_HoTen);
+            this.groupBox1.Controls.Add(this.txt_CCCD);
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txt_MaNV);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1122, 561);
+            this.groupBox1.TabIndex = 98;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin hành chính";
             // 
             // groupBox2
             // 
@@ -340,10 +258,10 @@
             this.groupBox2.Controls.Add(this.btn_Search);
             this.groupBox2.Controls.Add(this.txt_Search);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(12, 485);
+            this.groupBox2.Location = new System.Drawing.Point(34, 432);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(497, 87);
-            this.groupBox2.TabIndex = 98;
+            this.groupBox2.TabIndex = 121;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
             // 
@@ -398,40 +316,6 @@
             this.txt_Search.Size = new System.Drawing.Size(190, 38);
             this.txt_Search.TabIndex = 93;
             this.txt_Search.UnderlinedStyle = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txt_NgaySinh);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cbb_PhongBan);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.cbb_ChucDanh);
-            this.groupBox1.Controls.Add(this.txt_HocVan);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txt_DiaChi);
-            this.groupBox1.Controls.Add(this.txt_Email);
-            this.groupBox1.Controls.Add(this.txt_Tuoi);
-            this.groupBox1.Controls.Add(this.txt_SDT);
-            this.groupBox1.Controls.Add(this.txt_HoTen);
-            this.groupBox1.Controls.Add(this.txt_CCCD);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txt_MaNV);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(12, 14);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(931, 448);
-            this.groupBox1.TabIndex = 97;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin hành chính";
             // 
             // txt_NgaySinh
             // 
@@ -711,7 +595,7 @@
             this.pictureBox1.Image = global::GUI.Properties.Resources.user;
             this.pictureBox1.Location = new System.Drawing.Point(17, 7);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(187, 172);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
@@ -808,12 +692,169 @@
             this.label4.TabIndex = 98;
             this.label4.Text = "Mã NV";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 561);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1122, 342);
+            this.panel1.TabIndex = 100;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dtgv_NhanVien);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1122, 342);
+            this.groupBox3.TabIndex = 100;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Danh sách nhân viên";
+            // 
+            // dtgv_NhanVien
+            // 
+            this.dtgv_NhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgv_NhanVien.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_NhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgv_NhanVien.ColumnHeadersHeight = 29;
+            this.dtgv_NhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNV,
+            this.HoTen,
+            this.SDT,
+            this.CCCD,
+            this.HocVan,
+            this.PhongBan,
+            this.ChucDanh,
+            this.DiaChi,
+            this.Email,
+            this.Tuoi,
+            this.NgaySinh});
+            this.dtgv_NhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_NhanVien.Location = new System.Drawing.Point(3, 23);
+            this.dtgv_NhanVien.Name = "dtgv_NhanVien";
+            this.dtgv_NhanVien.ReadOnly = true;
+            this.dtgv_NhanVien.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dtgv_NhanVien.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgv_NhanVien.RowTemplate.Height = 29;
+            this.dtgv_NhanVien.Size = new System.Drawing.Size(1116, 316);
+            this.dtgv_NhanVien.TabIndex = 101;
+            this.dtgv_NhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_NhanVien_CellClick);
+            // 
+            // MaNV
+            // 
+            this.MaNV.FillWeight = 51.74035F;
+            this.MaNV.HeaderText = "Mã";
+            this.MaNV.MinimumWidth = 6;
+            this.MaNV.Name = "MaNV";
+            this.MaNV.ReadOnly = true;
+            this.MaNV.Width = 59;
+            // 
+            // HoTen
+            // 
+            this.HoTen.FillWeight = 161.8305F;
+            this.HoTen.HeaderText = "Tên";
+            this.HoTen.MinimumWidth = 6;
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            this.HoTen.Width = 61;
+            // 
+            // SDT
+            // 
+            this.SDT.FillWeight = 122.1812F;
+            this.SDT.HeaderText = "SDT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            this.SDT.Width = 64;
+            // 
+            // CCCD
+            // 
+            this.CCCD.FillWeight = 114.1662F;
+            this.CCCD.HeaderText = "CCCD";
+            this.CCCD.MinimumWidth = 6;
+            this.CCCD.Name = "CCCD";
+            this.CCCD.ReadOnly = true;
+            this.CCCD.Width = 76;
+            // 
+            // HocVan
+            // 
+            this.HocVan.FillWeight = 107.9669F;
+            this.HocVan.HeaderText = "Học vấn";
+            this.HocVan.MinimumWidth = 6;
+            this.HocVan.Name = "HocVan";
+            this.HocVan.ReadOnly = true;
+            this.HocVan.Width = 92;
+            // 
+            // PhongBan
+            // 
+            this.PhongBan.FillWeight = 102.4967F;
+            this.PhongBan.HeaderText = "Phòng ban";
+            this.PhongBan.MinimumWidth = 6;
+            this.PhongBan.Name = "PhongBan";
+            this.PhongBan.ReadOnly = true;
+            this.PhongBan.Width = 109;
+            // 
+            // ChucDanh
+            // 
+            this.ChucDanh.FillWeight = 97.66963F;
+            this.ChucDanh.HeaderText = "Chức danh";
+            this.ChucDanh.MinimumWidth = 6;
+            this.ChucDanh.Name = "ChucDanh";
+            this.ChucDanh.ReadOnly = true;
+            this.ChucDanh.Width = 108;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.FillWeight = 149.4564F;
+            this.DiaChi.HeaderText = "Địa chỉ";
+            this.DiaChi.MinimumWidth = 6;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            this.DiaChi.Width = 84;
+            // 
+            // Email
+            // 
+            this.Email.FillWeight = 78.90036F;
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 75;
+            // 
+            // Tuoi
+            // 
+            this.Tuoi.FillWeight = 31.70492F;
+            this.Tuoi.HeaderText = "Tuổi";
+            this.Tuoi.MinimumWidth = 6;
+            this.Tuoi.Name = "Tuoi";
+            this.Tuoi.ReadOnly = true;
+            this.Tuoi.Width = 67;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.FillWeight = 81.88653F;
+            this.NgaySinh.HeaderText = "Ngày sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 103;
+            // 
             // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1122, 860);
+            this.ClientSize = new System.Drawing.Size(1122, 953);
             this.Controls.Add(this.pn_Container);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -825,14 +866,16 @@
             this.toolStrip1.PerformLayout();
             this.pn_Container.ResumeLayout(false);
             this.pn_Main.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_NhanVien)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_NhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -849,7 +892,26 @@
         private ToolStripButton toolStripbtn_Them;
         private Panel pn_Main;
         private ToolStripButton toolStripBtn_PrintNV;
+        private Panel panel1;
+        private GroupBox groupBox3;
+        private DataGridView dtgv_NhanVien;
+        private DataGridViewTextBoxColumn MaNV;
+        private DataGridViewTextBoxColumn HoTen;
+        private DataGridViewTextBoxColumn SDT;
+        private DataGridViewTextBoxColumn CCCD;
+        private DataGridViewTextBoxColumn HocVan;
+        private DataGridViewTextBoxColumn PhongBan;
+        private DataGridViewTextBoxColumn ChucDanh;
+        private DataGridViewTextBoxColumn DiaChi;
+        private DataGridViewTextBoxColumn Email;
+        private DataGridViewTextBoxColumn Tuoi;
+        private DataGridViewTextBoxColumn NgaySinh;
+        private Panel panel2;
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Controls.TextBox_NTT txt_SoLuongNV;
+        private Button btn_Search;
+        private Controls.TextBox_NTT txt_Search;
         private Controls.TextBox_NTT txt_NgaySinh;
         private Label label11;
         private Label label3;
@@ -877,22 +939,5 @@
         private Label label5;
         private Controls.TextBox_NTT txt_MaNV;
         private Label label4;
-        private GroupBox groupBox2;
-        private Controls.TextBox_NTT txt_SoLuongNV;
-        private Button btn_Search;
-        private Controls.TextBox_NTT txt_Search;
-        private GroupBox groupBox3;
-        private DataGridView dtgv_NhanVien;
-        private DataGridViewTextBoxColumn MaNV;
-        private DataGridViewTextBoxColumn HoTen;
-        private DataGridViewTextBoxColumn SDT;
-        private DataGridViewTextBoxColumn CCCD;
-        private DataGridViewTextBoxColumn HocVan;
-        private DataGridViewTextBoxColumn PhongBan;
-        private DataGridViewTextBoxColumn ChucDanh;
-        private DataGridViewTextBoxColumn DiaChi;
-        private DataGridViewTextBoxColumn Email;
-        private DataGridViewTextBoxColumn Tuoi;
-        private DataGridViewTextBoxColumn NgaySinh;
     }
 }

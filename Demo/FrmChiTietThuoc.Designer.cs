@@ -28,8 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChiTietThuoc));
             this.dtgv_Thuoc = new System.Windows.Forms.DataGridView();
+            this.MaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HamLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacDungPhu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaSanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NuocSanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TacDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayApDungDonThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BietDuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_SoLuong = new Demo.Controls.TextBox_NTT();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -78,21 +94,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HamLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacDungPhu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhaSanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NuocSanXuat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TacDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayApDungDonThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BietDuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenLoaiThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Thuoc)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.pn_Left.SuspendLayout();
@@ -101,6 +102,7 @@
             // 
             // dtgv_Thuoc
             // 
+            this.dtgv_Thuoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgv_Thuoc.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_Thuoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgv_Thuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -121,13 +123,136 @@
             this.BietDuoc,
             this.TenLoaiThuoc});
             this.dtgv_Thuoc.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgv_Thuoc.Location = new System.Drawing.Point(0, 512);
+            this.dtgv_Thuoc.Location = new System.Drawing.Point(0, 575);
             this.dtgv_Thuoc.Name = "dtgv_Thuoc";
+            this.dtgv_Thuoc.ReadOnly = true;
             this.dtgv_Thuoc.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.dtgv_Thuoc.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_Thuoc.RowTemplate.Height = 29;
-            this.dtgv_Thuoc.Size = new System.Drawing.Size(1600, 329);
+            this.dtgv_Thuoc.Size = new System.Drawing.Size(1358, 329);
             this.dtgv_Thuoc.TabIndex = 93;
             this.dtgv_Thuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Thuoc_CellClick);
+            // 
+            // MaThuoc
+            // 
+            this.MaThuoc.HeaderText = "Mã thuốc";
+            this.MaThuoc.MinimumWidth = 6;
+            this.MaThuoc.Name = "MaThuoc";
+            this.MaThuoc.ReadOnly = true;
+            this.MaThuoc.Width = 92;
+            // 
+            // TenThuoc
+            // 
+            this.TenThuoc.HeaderText = "Tên thuốc";
+            this.TenThuoc.MinimumWidth = 6;
+            this.TenThuoc.Name = "TenThuoc";
+            this.TenThuoc.ReadOnly = true;
+            this.TenThuoc.Width = 94;
+            // 
+            // DonGia
+            // 
+            this.DonGia.HeaderText = "Đơn giá";
+            this.DonGia.MinimumWidth = 6;
+            this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
+            this.DonGia.Width = 84;
+            // 
+            // DonGiaBan
+            // 
+            this.DonGiaBan.HeaderText = "Đơn giá bán";
+            this.DonGiaBan.MinimumWidth = 6;
+            this.DonGiaBan.Name = "DonGiaBan";
+            this.DonGiaBan.ReadOnly = true;
+            this.DonGiaBan.Width = 88;
+            // 
+            // HamLuong
+            // 
+            this.HamLuong.HeaderText = "Hàm Lượng";
+            this.HamLuong.MinimumWidth = 6;
+            this.HamLuong.Name = "HamLuong";
+            this.HamLuong.ReadOnly = true;
+            this.HamLuong.Width = 107;
+            // 
+            // DonViTinh
+            // 
+            this.DonViTinh.HeaderText = "Đơn vị tính";
+            this.DonViTinh.MinimumWidth = 6;
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.ReadOnly = true;
+            this.DonViTinh.Width = 79;
+            // 
+            // TacDungPhu
+            // 
+            this.TacDungPhu.HeaderText = "Tác dụng phụ";
+            this.TacDungPhu.MinimumWidth = 6;
+            this.TacDungPhu.Name = "TacDungPhu";
+            this.TacDungPhu.ReadOnly = true;
+            this.TacDungPhu.Width = 116;
+            // 
+            // NhaSanXuat
+            // 
+            this.NhaSanXuat.HeaderText = "Nhà sản xuất";
+            this.NhaSanXuat.MinimumWidth = 6;
+            this.NhaSanXuat.Name = "NhaSanXuat";
+            this.NhaSanXuat.ReadOnly = true;
+            this.NhaSanXuat.Width = 113;
+            // 
+            // NuocSanXuat
+            // 
+            this.NuocSanXuat.HeaderText = "Nước sản xuất";
+            this.NuocSanXuat.MinimumWidth = 6;
+            this.NuocSanXuat.Name = "NuocSanXuat";
+            this.NuocSanXuat.ReadOnly = true;
+            this.NuocSanXuat.Width = 96;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.MinimumWidth = 6;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 91;
+            // 
+            // TacDung
+            // 
+            this.TacDung.HeaderText = "Tác dụng";
+            this.TacDung.MinimumWidth = 6;
+            this.TacDung.Name = "TacDung";
+            this.TacDung.ReadOnly = true;
+            this.TacDung.Width = 90;
+            // 
+            // NgayApDungDonThuoc
+            // 
+            this.NgayApDungDonThuoc.HeaderText = "Ngày áp dụng đơn thuốc";
+            this.NgayApDungDonThuoc.MinimumWidth = 6;
+            this.NgayApDungDonThuoc.Name = "NgayApDungDonThuoc";
+            this.NgayApDungDonThuoc.ReadOnly = true;
+            this.NgayApDungDonThuoc.Width = 152;
+            // 
+            // Lo
+            // 
+            this.Lo.HeaderText = "Lô";
+            this.Lo.MinimumWidth = 6;
+            this.Lo.Name = "Lo";
+            this.Lo.ReadOnly = true;
+            this.Lo.Width = 54;
+            // 
+            // BietDuoc
+            // 
+            this.BietDuoc.HeaderText = "Biệt dược";
+            this.BietDuoc.MinimumWidth = 6;
+            this.BietDuoc.Name = "BietDuoc";
+            this.BietDuoc.ReadOnly = true;
+            this.BietDuoc.Width = 94;
+            // 
+            // TenLoaiThuoc
+            // 
+            this.TenLoaiThuoc.HeaderText = "Loại thuốc";
+            this.TenLoaiThuoc.MinimumWidth = 6;
+            this.TenLoaiThuoc.Name = "TenLoaiThuoc";
+            this.TenLoaiThuoc.ReadOnly = true;
+            this.TenLoaiThuoc.Width = 99;
             // 
             // txt_SoLuong
             // 
@@ -208,7 +333,7 @@
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(91, 23);
             this.label23.TabIndex = 39;
-            this.label23.Text = "Biệt dược: ";
+            this.label23.Text = "Biệt dược :";
             // 
             // txt_Lo
             // 
@@ -350,7 +475,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(1602, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(1360, 50);
             this.toolStrip1.TabIndex = 7;
             // 
             // toolStripBtn_Luu
@@ -481,7 +606,7 @@
             this.pn_Left.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Left.Location = new System.Drawing.Point(0, 0);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(1602, 843);
+            this.pn_Left.Size = new System.Drawing.Size(1360, 906);
             this.pn_Left.TabIndex = 6;
             // 
             // txt_NhaSanXuat
@@ -658,9 +783,9 @@
             this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.Location = new System.Drawing.Point(392, 70);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(113, 23);
+            this.label10.Size = new System.Drawing.Size(108, 23);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Đơn giá bán: ";
+            this.label10.Text = "Đơn giá bán:";
             // 
             // label9
             // 
@@ -718,11 +843,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(64, 190);
+            this.label6.Location = new System.Drawing.Point(59, 190);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 23);
+            this.label6.Size = new System.Drawing.Size(79, 23);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Đơn giá:";
+            this.label6.Text = "Đơn giá :";
             // 
             // txt_MaThuoc
             // 
@@ -806,7 +931,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 23);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Mã thuốc: ";
+            this.label2.Text = "Mã thuốc :";
             // 
             // pictureBox1
             // 
@@ -829,119 +954,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh mục thuốc";
             // 
-            // MaThuoc
-            // 
-            this.MaThuoc.HeaderText = "Mã thuốc";
-            this.MaThuoc.MinimumWidth = 6;
-            this.MaThuoc.Name = "MaThuoc";
-            this.MaThuoc.Width = 125;
-            // 
-            // TenThuoc
-            // 
-            this.TenThuoc.HeaderText = "Tên thuốc";
-            this.TenThuoc.MinimumWidth = 6;
-            this.TenThuoc.Name = "TenThuoc";
-            this.TenThuoc.Width = 215;
-            // 
-            // DonGia
-            // 
-            this.DonGia.HeaderText = "Đơn giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 150;
-            // 
-            // DonGiaBan
-            // 
-            this.DonGiaBan.HeaderText = "Đơn giá bán";
-            this.DonGiaBan.MinimumWidth = 6;
-            this.DonGiaBan.Name = "DonGiaBan";
-            this.DonGiaBan.Width = 125;
-            // 
-            // HamLuong
-            // 
-            this.HamLuong.HeaderText = "Hàm Lượng";
-            this.HamLuong.MinimumWidth = 6;
-            this.HamLuong.Name = "HamLuong";
-            this.HamLuong.Width = 125;
-            // 
-            // DonViTinh
-            // 
-            this.DonViTinh.HeaderText = "Đơn vị tính";
-            this.DonViTinh.MinimumWidth = 6;
-            this.DonViTinh.Name = "DonViTinh";
-            this.DonViTinh.Width = 125;
-            // 
-            // TacDungPhu
-            // 
-            this.TacDungPhu.HeaderText = "Tác dụng phụ";
-            this.TacDungPhu.MinimumWidth = 6;
-            this.TacDungPhu.Name = "TacDungPhu";
-            this.TacDungPhu.Width = 125;
-            // 
-            // NhaSanXuat
-            // 
-            this.NhaSanXuat.HeaderText = "Nhà sản xuất";
-            this.NhaSanXuat.MinimumWidth = 6;
-            this.NhaSanXuat.Name = "NhaSanXuat";
-            this.NhaSanXuat.Width = 125;
-            // 
-            // NuocSanXuat
-            // 
-            this.NuocSanXuat.HeaderText = "Nước sản xuất";
-            this.NuocSanXuat.MinimumWidth = 6;
-            this.NuocSanXuat.Name = "NuocSanXuat";
-            this.NuocSanXuat.Width = 125;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.MinimumWidth = 6;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.Width = 125;
-            // 
-            // TacDung
-            // 
-            this.TacDung.HeaderText = "Tác dụng";
-            this.TacDung.MinimumWidth = 6;
-            this.TacDung.Name = "TacDung";
-            this.TacDung.Width = 125;
-            // 
-            // NgayApDungDonThuoc
-            // 
-            this.NgayApDungDonThuoc.HeaderText = "Ngày áp dụng đơn thuốc";
-            this.NgayApDungDonThuoc.MinimumWidth = 6;
-            this.NgayApDungDonThuoc.Name = "NgayApDungDonThuoc";
-            this.NgayApDungDonThuoc.Width = 125;
-            // 
-            // Lo
-            // 
-            this.Lo.HeaderText = "Lô";
-            this.Lo.MinimumWidth = 6;
-            this.Lo.Name = "Lo";
-            this.Lo.Width = 125;
-            // 
-            // BietDuoc
-            // 
-            this.BietDuoc.HeaderText = "Biệt dược";
-            this.BietDuoc.MinimumWidth = 6;
-            this.BietDuoc.Name = "BietDuoc";
-            this.BietDuoc.Width = 125;
-            // 
-            // TenLoaiThuoc
-            // 
-            this.TenLoaiThuoc.HeaderText = "Loại thuốc";
-            this.TenLoaiThuoc.MinimumWidth = 6;
-            this.TenLoaiThuoc.Name = "TenLoaiThuoc";
-            this.TenLoaiThuoc.Width = 125;
-            // 
-            // FrmNhapThuoc
+            // FrmChiTietThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1602, 843);
+            this.ClientSize = new System.Drawing.Size(1360, 906);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pn_Left);
-            this.Name = "FrmNhapThuoc";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmChiTietThuoc";
             this.Text = "FrmNhapThuoc";
             this.Load += new System.EventHandler(this.FrmNhapThuoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Thuoc)).EndInit();

@@ -3,6 +3,7 @@ using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -34,8 +35,7 @@ namespace DAL
                                 PB.TenPhongBan
                             FROM NhanVien NV
                             JOIN PhongBan PB ON NV.MaPhongBan = PB.MaPhongBan
-                            WHERE NV.TrangThai = 1
-                        ";
+                            WHERE NV.TrangThai = 1";
             SqlDataAdapter da = new SqlDataAdapter(query, Connect);
             DataTable dtNhanVien = new DataTable();
             da.Fill(dtNhanVien);
@@ -68,8 +68,8 @@ namespace DAL
                 //conn.OpenConnect();
                 transaction = conn.Connect.BeginTransaction();
 
-                string query = "INSERT INTO NhanVien (HoTen, SDT, DiaChi, Email, CCCD, HocVan, Tuoi, NgaySinh, AnhDaiDien, ChucDanh, MatKhau, TrangThai, MaPhongBan) " +
-                               "VALUES (@HoTen, @SDT, @DiaChi, @Email, @CCCD, @HocVan, @Tuoi, @NgaySinh, @AnhDaiDien, @ChucDanh, @MatKhau, @TrangThai, @MaPhongBan)";
+                string query = "INSERT INTO NhanVien (HoTen, SDT, DiaChi, Email, CCCD, HocVan, Tuoi, NgaySinh, AnhDaiDien, ChucDanh, MaQuyen, MatKhau, TrangThai, MaPhongBan) " +
+                               "VALUES (@HoTen, @SDT, @DiaChi, @Email, @CCCD, @HocVan, @Tuoi, @NgaySinh, @AnhDaiDien, @ChucDanh, @MaQuyen, @MatKhau, @TrangThai, @MaPhongBan)";
                 SqlCommand cmd = new SqlCommand(query, conn.Connect, transaction);
                 cmd.Parameters.AddWithValue("@HoTen", nhanVien.HoTen);
                 cmd.Parameters.AddWithValue("@SDT", nhanVien.SDT);
@@ -81,6 +81,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@NgaySinh", nhanVien.NgaySinh);
                 cmd.Parameters.AddWithValue("@AnhDaiDien", "image1.png");
                 cmd.Parameters.AddWithValue("@ChucDanh", nhanVien.ChucDanh);
+                cmd.Parameters.AddWithValue("@MaQuyen", nhanVien.MaQuyen);
                 cmd.Parameters.AddWithValue("@MaPhongBan", nhanVien.MaPhongBan);
                 cmd.Parameters.AddWithValue("@MatKhau", nhanVien.SDT);
                 cmd.Parameters.AddWithValue("@TrangThai", 1);
@@ -176,51 +177,75 @@ namespace DAL
         }
         public bool deleteNhanVien(string sdt)
         {
+            SqlTransaction transaction = null;
+
             try
             {
-                //conn.OpenConnect();
-                string query = "Update NhanVien SET " +
-                                "TrangThai = @TrangThai " +
-                                "WHERE SDT = @SDT";
-                SqlCommand cmd = new SqlCommand(query, Connect);
+                conn.OpenConnect();
+                transaction = conn.Connect.BeginTransaction();
 
-                cmd.Parameters.AddWithValue("@SDT", sdt);
-                cmd.Parameters.AddWithValue("@TrangThai", 0);
+                string query = "UPDATE NhanVien SET TrangThai = @TrangThai WHERE SDT = @SDT";
+                SqlCommand updateCommand = new SqlCommand(query, Connect, transaction);
+                updateCommand.Parameters.AddWithValue("@SDT", sdt);
+                updateCommand.Parameters.AddWithValue("@TrangThai", 0);
 
+                int rowsAffected = updateCommand.ExecuteNonQuery();
 
-                if (cmd.ExecuteNonQuery() > 0)
+                if (rowsAffected == 0)
                 {
-                    return true;
+                    transaction.Rollback();
+                    return false;
                 }
+
+                // Gọi thủ tục proc_XoaTaiKhoanDangNhap để xóa tài khoản
+                SqlCommand cmd = new SqlCommand("proc_XoaTaiKhoanDangNhap", Connect, transaction);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@LoginName", sdt);
+
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+                return true; // Cập nhật trạng thái và xóa tài khoản thành công
             }
             catch (Exception ex)
             {
-                conn.CloseConnect();
-            }
-            return false;
-
-        }
-        public bool deleteNhanVienChuyenKhoa(int maNV)
-        {
-            try
-            {
-                //conn.OpenConnect();
-                string query = "DELETE FROM CT_ChuyenKhoa WHERE MaNV = @MaNV";
-                SqlCommand cmd = new SqlCommand(query, Connect);
-
-                cmd.Parameters.AddWithValue("@MaNV", maNV);
-
-                if (cmd.ExecuteNonQuery() > 0)
+                if (transaction != null)
                 {
-                    return true;
+                    transaction.Rollback();
+                }
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                // Đảm bảo kết nối được đóng
+                if (Connect.State == ConnectionState.Open)
+                {
+                    conn.CloseConnect();
                 }
             }
-            catch (Exception ex)
-            {
-                conn.CloseConnect();
-            }
-            return false;
         }
+        //public bool deleteNhanVienChuyenKhoa(int maNV)
+        //{
+        //    try
+        //    {
+        //        //conn.OpenConnect();
+        //        string query = "DELETE FROM CT_ChuyenKhoa WHERE MaNV = @MaNV";
+        //        SqlCommand cmd = new SqlCommand(query, Connect);
+
+        //        cmd.Parameters.AddWithValue("@MaNV", maNV);
+
+        //        if (cmd.ExecuteNonQuery() > 0)
+        //        {
+        //            return true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        conn.CloseConnect();
+        //    }
+        //    return false;
+        //}
         public DataTable search(string search)
         {
             string query = @"SELECT 
@@ -318,6 +343,55 @@ namespace DAL
                 conn.CloseConnect();
             }
             return false;
+        }
+        public bool doiMatKhau(NhanVien_DTO nhanVien)
+        {
+            SqlTransaction transaction = null;
+
+            try
+            {
+                conn.OpenConnect();
+                transaction = conn.Connect.BeginTransaction();
+
+                string updateQuery = "UPDATE NHANVIEN SET MatKhau = @MatKhau WHERE SDT = @SDT";
+                SqlCommand updateCommand = new SqlCommand(updateQuery, Connect, transaction);
+                updateCommand.Parameters.AddWithValue("@MatKhau", nhanVien.MatKhau);
+                updateCommand.Parameters.AddWithValue("@SDT", nhanVien.SDT);
+                int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+
+                SqlCommand cmd = new SqlCommand("proc_ChangeUserPassword", Connect, transaction);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@LoginName", nhanVien.SDT);
+                cmd.Parameters.AddWithValue("@NewPassword", nhanVien.MatKhau);
+
+                cmd.ExecuteNonQuery();
+
+                transaction.Commit();
+                return true; // Đổi mật khẩu thành công
+            }
+            catch (Exception ex)
+            {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (Connect.State == ConnectionState.Open)
+                {
+                    conn.CloseConnect();
+                }
+            }
+            return true;
         }
     }
 }

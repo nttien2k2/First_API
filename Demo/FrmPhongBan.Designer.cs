@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPhongBan));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripBtn_Luu = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtn_Xoa = new System.Windows.Forms.ToolStripButton();
@@ -75,7 +78,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(948, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(1378, 50);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripBtn_Luu
@@ -138,21 +141,29 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(948, 820);
+            this.panel4.Size = new System.Drawing.Size(1378, 953);
             this.panel4.TabIndex = 2;
             // 
             // pn_Right
             // 
             this.pn_Right.Controls.Add(this.dtgv_PhongBan);
             this.pn_Right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Right.Location = new System.Drawing.Point(320, 50);
+            this.pn_Right.Location = new System.Drawing.Point(512, 50);
             this.pn_Right.Name = "pn_Right";
-            this.pn_Right.Size = new System.Drawing.Size(628, 770);
+            this.pn_Right.Size = new System.Drawing.Size(866, 903);
             this.pn_Right.TabIndex = 3;
             // 
             // dtgv_PhongBan
             // 
             this.dtgv_PhongBan.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_PhongBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_PhongBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_PhongBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaPhongBan,
@@ -162,39 +173,49 @@
             this.dtgv_PhongBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgv_PhongBan.Location = new System.Drawing.Point(0, 0);
             this.dtgv_PhongBan.Name = "dtgv_PhongBan";
+            this.dtgv_PhongBan.ReadOnly = true;
             this.dtgv_PhongBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtgv_PhongBan.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dtgv_PhongBan.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_PhongBan.RowTemplate.Height = 29;
-            this.dtgv_PhongBan.Size = new System.Drawing.Size(628, 770);
+            this.dtgv_PhongBan.Size = new System.Drawing.Size(866, 903);
             this.dtgv_PhongBan.TabIndex = 0;
             this.dtgv_PhongBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_PhongBan_CellClick);
             // 
             // MaPhongBan
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaPhongBan.DefaultCellStyle = dataGridViewCellStyle2;
             this.MaPhongBan.HeaderText = "Mã";
             this.MaPhongBan.MinimumWidth = 6;
             this.MaPhongBan.Name = "MaPhongBan";
-            this.MaPhongBan.Width = 50;
+            this.MaPhongBan.ReadOnly = true;
+            this.MaPhongBan.Width = 90;
             // 
             // TenPhongBan
             // 
             this.TenPhongBan.HeaderText = "Tên";
             this.TenPhongBan.MinimumWidth = 6;
             this.TenPhongBan.Name = "TenPhongBan";
-            this.TenPhongBan.Width = 200;
+            this.TenPhongBan.ReadOnly = true;
+            this.TenPhongBan.Width = 450;
             // 
             // VietTat
             // 
             this.VietTat.HeaderText = "Viết tắt";
             this.VietTat.MinimumWidth = 6;
             this.VietTat.Name = "VietTat";
-            this.VietTat.Width = 150;
+            this.VietTat.ReadOnly = true;
+            this.VietTat.Width = 200;
             // 
             // TrangThai
             // 
             this.TrangThai.HeaderText = "Sử dụng";
             this.TrangThai.MinimumWidth = 6;
             this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
             this.TrangThai.Width = 70;
             // 
             // pn_Left
@@ -218,8 +239,9 @@
             this.pn_Left.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.pn_Left.Location = new System.Drawing.Point(0, 50);
             this.pn_Left.Name = "pn_Left";
-            this.pn_Left.Size = new System.Drawing.Size(320, 770);
+            this.pn_Left.Size = new System.Drawing.Size(512, 903);
             this.pn_Left.TabIndex = 2;
+            this.pn_Left.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_Left_Paint);
             // 
             // txt_VietTat
             // 
@@ -230,7 +252,7 @@
             this.txt_VietTat.BorderSize = 1;
             this.txt_VietTat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_VietTat.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_VietTat.Location = new System.Drawing.Point(79, 168);
+            this.txt_VietTat.Location = new System.Drawing.Point(85, 168);
             this.txt_VietTat.Margin = new System.Windows.Forms.Padding(4);
             this.txt_VietTat.Multiline = false;
             this.txt_VietTat.Name = "txt_VietTat";
@@ -238,7 +260,7 @@
             this.txt_VietTat.PasswordChar = false;
             this.txt_VietTat.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_VietTat.PlaceholderText = "";
-            this.txt_VietTat.Size = new System.Drawing.Size(200, 35);
+            this.txt_VietTat.Size = new System.Drawing.Size(348, 35);
             this.txt_VietTat.TabIndex = 12;
             this.txt_VietTat.UnderlinedStyle = false;
             // 
@@ -246,7 +268,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(12, 173);
+            this.label6.Location = new System.Drawing.Point(18, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 20);
             this.label6.TabIndex = 11;
@@ -261,7 +283,7 @@
             this.txt_MaPhongBan.BorderSize = 1;
             this.txt_MaPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_MaPhongBan.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_MaPhongBan.Location = new System.Drawing.Point(80, 82);
+            this.txt_MaPhongBan.Location = new System.Drawing.Point(87, 82);
             this.txt_MaPhongBan.Margin = new System.Windows.Forms.Padding(4);
             this.txt_MaPhongBan.Multiline = false;
             this.txt_MaPhongBan.Name = "txt_MaPhongBan";
@@ -269,7 +291,7 @@
             this.txt_MaPhongBan.PasswordChar = false;
             this.txt_MaPhongBan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_MaPhongBan.PlaceholderText = "";
-            this.txt_MaPhongBan.Size = new System.Drawing.Size(200, 35);
+            this.txt_MaPhongBan.Size = new System.Drawing.Size(348, 35);
             this.txt_MaPhongBan.TabIndex = 8;
             this.txt_MaPhongBan.UnderlinedStyle = false;
             // 
@@ -281,7 +303,7 @@
             this.btn_ThemPB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThemPB.Image = ((System.Drawing.Image)(resources.GetObject("btn_ThemPB.Image")));
             this.btn_ThemPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ThemPB.Location = new System.Drawing.Point(80, 257);
+            this.btn_ThemPB.Location = new System.Drawing.Point(86, 257);
             this.btn_ThemPB.Name = "btn_ThemPB";
             this.btn_ThemPB.Size = new System.Drawing.Size(148, 53);
             this.btn_ThemPB.TabIndex = 10;
@@ -294,7 +316,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(287, 129);
+            this.label5.Location = new System.Drawing.Point(440, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 25);
             this.label5.TabIndex = 9;
@@ -305,7 +327,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(286, 81);
+            this.label4.Location = new System.Drawing.Point(440, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(21, 25);
             this.label4.TabIndex = 8;
@@ -320,7 +342,7 @@
             this.txt_TenPhongBan.BorderSize = 1;
             this.txt_TenPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_TenPhongBan.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txt_TenPhongBan.Location = new System.Drawing.Point(80, 125);
+            this.txt_TenPhongBan.Location = new System.Drawing.Point(86, 125);
             this.txt_TenPhongBan.Margin = new System.Windows.Forms.Padding(4);
             this.txt_TenPhongBan.Multiline = false;
             this.txt_TenPhongBan.Name = "txt_TenPhongBan";
@@ -328,14 +350,14 @@
             this.txt_TenPhongBan.PasswordChar = false;
             this.txt_TenPhongBan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txt_TenPhongBan.PlaceholderText = "";
-            this.txt_TenPhongBan.Size = new System.Drawing.Size(200, 35);
+            this.txt_TenPhongBan.Size = new System.Drawing.Size(348, 35);
             this.txt_TenPhongBan.TabIndex = 7;
             this.txt_TenPhongBan.UnderlinedStyle = false;
             // 
             // ckb_TrangThai
             // 
             this.ckb_TrangThai.AutoSize = true;
-            this.ckb_TrangThai.Location = new System.Drawing.Point(80, 210);
+            this.ckb_TrangThai.Location = new System.Drawing.Point(86, 210);
             this.ckb_TrangThai.Name = "ckb_TrangThai";
             this.ckb_TrangThai.Size = new System.Drawing.Size(88, 24);
             this.ckb_TrangThai.TabIndex = 5;
@@ -346,7 +368,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(37, 130);
+            this.label3.Location = new System.Drawing.Point(43, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
             this.label3.TabIndex = 4;
@@ -356,7 +378,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(39, 86);
+            this.label2.Location = new System.Drawing.Point(45, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 20);
             this.label2.TabIndex = 3;
@@ -365,7 +387,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(12, 56);
+            this.button1.Location = new System.Drawing.Point(45, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 2);
             this.button1.TabIndex = 2;
@@ -375,7 +397,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(25, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 29);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -386,7 +408,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(69, 21);
+            this.label1.Location = new System.Drawing.Point(102, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 25);
             this.label1.TabIndex = 0;
@@ -396,7 +418,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(948, 820);
+            this.ClientSize = new System.Drawing.Size(1378, 953);
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPhongBan";

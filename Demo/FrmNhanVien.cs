@@ -31,7 +31,7 @@ namespace Demo
             Load_NhanVien();
             cbb_ChucDanh.DataSource = nhanVienBLL.loadCbb_ChucDanh();
             cbb_ChucDanh.DisplayMember = "TenQuyen";
-            cbb_ChucDanh.ValueMember = "TenQuyen";
+            cbb_ChucDanh.ValueMember = "MaQuyen";
             cbb_PhongBan.DataSource = phongBanBLL.loadCbb_PhongBan();
             cbb_PhongBan.DisplayMember = "TenPhongBan";
             cbb_PhongBan.ValueMember = "MaPhongBan";
@@ -104,7 +104,8 @@ namespace Demo
             nv.DiaChi = txt_DiaChi.Text;
             nv.HocVan = txt_HocVan.Text;
             nv.NgaySinh = DateTime.ParseExact(txt_NgaySinh.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            nv.ChucDanh = cbb_ChucDanh.SelectedValue.ToString();
+            nv.MaQuyen = int.Parse(cbb_ChucDanh.SelectedValue.ToString());
+            nv.ChucDanh = cbb_ChucDanh.Text;
             nv.MaPhongBan = int.Parse(cbb_PhongBan.SelectedValue.ToString());
 
 

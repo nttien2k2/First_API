@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class FrmThemHSBA
+    partial class FrmCapNhatHSBA
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThemHSBA));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCapNhatHSBA));
             this.txt_KetQuaKham = new Demo.Controls.TextBox_NTT();
             this.label17 = new System.Windows.Forms.Label();
             this.txt_LyDoKham = new Demo.Controls.TextBox_NTT();
@@ -244,7 +244,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(800, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(1378, 50);
             this.toolStrip1.TabIndex = 140;
             // 
             // toolStripBtn_Luu
@@ -354,11 +354,11 @@
             this.cbb_NhanVien.Size = new System.Drawing.Size(148, 28);
             this.cbb_NhanVien.TabIndex = 145;
             // 
-            // FrmThemHSBA
+            // FrmCapNhatHSBA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 800);
+            this.ClientSize = new System.Drawing.Size(1378, 953);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbb_NhanVien);
             this.Controls.Add(this.label1);
@@ -379,7 +379,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmThemHSBA";
+            this.Name = "FrmCapNhatHSBA";
             this.Text = "FrmThemHSBA";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

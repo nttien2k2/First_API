@@ -56,6 +56,8 @@
             this.pn_HoSoBenhAn = new System.Windows.Forms.Panel();
             this.btn_HoSoBenhAn = new System.Windows.Forms.Button();
             this.pn_CaiDat = new System.Windows.Forms.Panel();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
+            this.btn_DoiMatKhau = new System.Windows.Forms.Button();
             this.btn_SaoLuuPhucHoi = new System.Windows.Forms.Button();
             this.btn_PhanQuyen = new System.Windows.Forms.Button();
             this.btn_CaiDat = new System.Windows.Forms.Button();
@@ -124,9 +126,9 @@
             this.pn_Footer.Controls.Add(this.label4);
             this.pn_Footer.Controls.Add(this.label3);
             this.pn_Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pn_Footer.Location = new System.Drawing.Point(0, 823);
+            this.pn_Footer.Location = new System.Drawing.Point(0, 947);
             this.pn_Footer.Name = "pn_Footer";
-            this.pn_Footer.Size = new System.Drawing.Size(948, 35);
+            this.pn_Footer.Size = new System.Drawing.Size(1648, 35);
             this.pn_Footer.TabIndex = 0;
             // 
             // label4
@@ -149,13 +151,13 @@
             this.pn_Header.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pn_Header.Location = new System.Drawing.Point(0, 0);
             this.pn_Header.Name = "pn_Header";
-            this.pn_Header.Size = new System.Drawing.Size(1200, 40);
+            this.pn_Header.Size = new System.Drawing.Size(1900, 40);
             this.pn_Header.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(558, 5);
+            this.label1.Location = new System.Drawing.Point(979, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 30);
             this.label1.TabIndex = 1;
@@ -164,7 +166,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(479, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(900, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(76, 40);
@@ -178,7 +180,7 @@
             this.pn_Control.Controls.Add(this.btn_Maxsize);
             this.pn_Control.Controls.Add(this.btn_Close);
             this.pn_Control.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Control.Location = new System.Drawing.Point(1080, 0);
+            this.pn_Control.Location = new System.Drawing.Point(1780, 0);
             this.pn_Control.Name = "pn_Control";
             this.pn_Control.Size = new System.Drawing.Size(120, 40);
             this.pn_Control.TabIndex = 2;
@@ -231,7 +233,7 @@
             this.pn_Main.MaximumSize = new System.Drawing.Size(1750, 1028);
             this.pn_Main.MinimumSize = new System.Drawing.Size(950, 860);
             this.pn_Main.Name = "pn_Main";
-            this.pn_Main.Size = new System.Drawing.Size(950, 860);
+            this.pn_Main.Size = new System.Drawing.Size(1650, 984);
             this.pn_Main.TabIndex = 13;
             // 
             // pn_Thuoc
@@ -449,15 +451,55 @@
             // pn_CaiDat
             // 
             this.pn_CaiDat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.pn_CaiDat.Controls.Add(this.btn_DangXuat);
+            this.pn_CaiDat.Controls.Add(this.btn_DoiMatKhau);
             this.pn_CaiDat.Controls.Add(this.btn_SaoLuuPhucHoi);
             this.pn_CaiDat.Controls.Add(this.btn_PhanQuyen);
             this.pn_CaiDat.Controls.Add(this.btn_CaiDat);
             this.pn_CaiDat.Location = new System.Drawing.Point(3, 739);
-            this.pn_CaiDat.MaximumSize = new System.Drawing.Size(250, 140);
+            this.pn_CaiDat.MaximumSize = new System.Drawing.Size(250, 220);
             this.pn_CaiDat.MinimumSize = new System.Drawing.Size(250, 60);
             this.pn_CaiDat.Name = "pn_CaiDat";
             this.pn_CaiDat.Size = new System.Drawing.Size(250, 60);
             this.pn_CaiDat.TabIndex = 15;
+            // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_DangXuat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.btn_DangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DangXuat.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_DangXuat.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_DangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btn_DangXuat.Image")));
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(0, 180);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_DangXuat.Size = new System.Drawing.Size(250, 40);
+            this.btn_DangXuat.TabIndex = 15;
+            this.btn_DangXuat.Text = "            Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.UseVisualStyleBackColor = false;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
+            // 
+            // btn_DoiMatKhau
+            // 
+            this.btn_DoiMatKhau.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_DoiMatKhau.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(117)))), ((int)(((byte)(220)))));
+            this.btn_DoiMatKhau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DoiMatKhau.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_DoiMatKhau.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_DoiMatKhau.Image = ((System.Drawing.Image)(resources.GetObject("btn_DoiMatKhau.Image")));
+            this.btn_DoiMatKhau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DoiMatKhau.Location = new System.Drawing.Point(0, 140);
+            this.btn_DoiMatKhau.Name = "btn_DoiMatKhau";
+            this.btn_DoiMatKhau.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_DoiMatKhau.Size = new System.Drawing.Size(250, 40);
+            this.btn_DoiMatKhau.TabIndex = 14;
+            this.btn_DoiMatKhau.Text = "            Đổi mật khẩu";
+            this.btn_DoiMatKhau.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DoiMatKhau.UseVisualStyleBackColor = false;
+            this.btn_DoiMatKhau.Click += new System.EventHandler(this.btn_DoiMatKhau_Click);
             // 
             // btn_SaoLuuPhucHoi
             // 
@@ -705,7 +747,7 @@
             this.sidebar.MaximumSize = new System.Drawing.Size(250, 1028);
             this.sidebar.MinimumSize = new System.Drawing.Size(85, 860);
             this.sidebar.Name = "sidebar";
-            this.sidebar.Size = new System.Drawing.Size(250, 860);
+            this.sidebar.Size = new System.Drawing.Size(250, 984);
             this.sidebar.TabIndex = 16;
             // 
             // pn_TBYT
@@ -818,13 +860,13 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1200, 900);
+            this.ClientSize = new System.Drawing.Size(1900, 1024);
             this.Controls.Add(this.pn_Main);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.pn_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(1900, 1028);
-            this.MinimumSize = new System.Drawing.Size(1000, 900);
+            this.MaximumSize = new System.Drawing.Size(1900, 1024);
+            this.MinimumSize = new System.Drawing.Size(1200, 1024);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MedicalPro";
@@ -908,5 +950,7 @@
         private Button btn_LoaiTBYT;
         private Button btn_TBYT;
         private System.Windows.Forms.Timer btn_TBYT_Timer;
+        private Button btn_DangXuat;
+        private Button btn_DoiMatKhau;
     }
 }
